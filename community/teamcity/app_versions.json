@@ -6,10 +6,10 @@
         "location": "/catalog/community/teamcity/1.0.0",
         "last_update": "2026-07-01 15:37:59",
         "required_features": [
-            "normalize/acl",
+            "definitions/timezone",
             "definitions/certificate",
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "latest_1.0.0",
         "version": "1.0.0",

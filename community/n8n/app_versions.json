@@ -6,9 +6,9 @@
         "location": "/catalog/community/n8n/1.2.115",
         "last_update": "2025-03-05 14:29:05",
         "required_features": [
-            "normalize/acl",
-            "definitions/certificate",
             "definitions/nodeIP",
+            "definitions/certificate",
+            "normalize/acl",
             "normalize/ixVolume"
         ],
         "human_version": "1.82.1_1.2.115",

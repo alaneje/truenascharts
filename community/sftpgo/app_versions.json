@@ -6,8 +6,8 @@
         "location": "/catalog/community/sftpgo/1.2.12",
         "last_update": "2025-02-25 16:22:24",
         "required_features": [
-            "normalize/acl",
             "definitions/certificate",
+            "normalize/acl",
             "normalize/ixVolume"
         ],
         "human_version": "2.6.6_1.2.12",

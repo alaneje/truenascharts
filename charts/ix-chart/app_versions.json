@@ -8,9 +8,9 @@
         "required_features": [
             "definitions/nodeIP",
             "definitions/interface",
-            "normalize/interfaceConfiguration",
             "normalize/ixVolume",
-            "definitions/gpuConfiguration"
+            "definitions/gpuConfiguration",
+            "normalize/interfaceConfiguration"
         ],
         "human_version": "2403.0.0",
         "version": "2403.0.0",

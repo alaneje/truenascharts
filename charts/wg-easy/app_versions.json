@@ -6,8 +6,8 @@
         "location": "/catalog/charts/wg-easy/2.0.21",
         "last_update": "2024-08-27 13:29:28",
         "required_features": [
-            "normalize/acl",
             "definitions/nodeIP",
+            "normalize/acl",
             "normalize/ixVolume"
         ],
         "human_version": "14_2.0.21",
@@ -1178,8 +1178,8 @@
         "location": "/catalog/charts/wg-easy/1.0.12",
         "last_update": "2023-10-19 04:50:58",
         "required_features": [
-            "validations/lockedHostPath",
             "definitions/nodeIP",
+            "validations/lockedHostPath",
             "normalize/ixVolume"
         ],
         "human_version": "7_1.0.12",
