@@ -1,0 +1,50 @@
+version: 2
+updates:
+  - package-ecosystem: "docker"
+    directory: "/charts/home-assistant/2.0.67"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "docker"
+    directory: "/community/audiobookshelf/1.0.31"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "docker"
+    directory: "/community/ddns-updater/1.0.34"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "docker"
+    directory: "/community/mealie/1.0.34"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "docker"
+    directory: "/community/minecraft/1.2.26"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "docker"
+    directory: "/community/cloudflared/1.2.28"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "helm"
+    directory: "/charts/home-assistant/2.0.67"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "helm"
+    directory: "/community/audiobookshelf/1.0.31"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "helm"
+    directory: "/community/ddns-updater/1.0.34"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "helm"
+    directory: "/community/mealie/1.0.34"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "helm"
+    directory: "/community/minecraft/1.2.26"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "helm"
+    directory: "/community/cloudflared/1.2.28"
+    schedule:
+      interval: "daily"
