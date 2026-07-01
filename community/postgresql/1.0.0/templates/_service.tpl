@@ -11,6 +11,7 @@ service:
         primary: true
         port: {{ .Values.postgresqlNetwork.serverPort }}
         nodePort: {{ .Values.postgresqlNetwork.serverPort }}
+        targetPort: 5432
         targetSelector: postgresql
         protocol: tcp
 {{- end -}}

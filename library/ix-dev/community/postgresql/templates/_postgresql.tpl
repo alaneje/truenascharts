@@ -32,13 +32,13 @@ workload:
             liveness:
               enabled: true
               type: tcp
-              port: {{ .Values.postgresqlNetwork.serverPort }}
+              port: 5432
             readiness:
               enabled: true
               type: tcp
-              port: {{ .Values.postgresqlNetwork.serverPort }}
+              port: 5432
             startup:
               enabled: true
               type: tcp
-              port: {{ .Values.postgresqlNetwork.serverPort }}
+              port: 5432
 {{- end -}}
