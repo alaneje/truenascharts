@@ -1,0 +1,16 @@
+gitlabStorage:
+  data:
+    type: pvc
+  config:
+    type: pvc
+  pgData:
+    type: pvc
+  pgBackup:
+    type: emptyDir
+    emptyDirConfig:
+      medium: ""
+      size: ""
+
+gitlabNetwork:
+  rootURL: http://localhost:30000
+  externalSshPort: 22

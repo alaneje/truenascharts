@@ -1,0 +1,46 @@
+image:
+  repository: gitlab/gitlab
+  pullPolicy: IfNotPresent
+  tag: 1.23.5-rootless
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+
+gitlabConfig:
+  additionalEnvs: []
+
+gitlabNetwork:
+  webPort: 30008
+  sshPort: 30009
+  certificateID:
+  rootURL: ''
+  hostNetwork: false
+
+# FIXME: Currently only user 1000 works.
+# Any other uid is not mapped to the internal "git" user.
+# https://github.com/go-gitlab/gitlab/issues/23632
+gitlabRunAs:
+  user: 1000
+  group: 1000
+
+gitlabStorage:
+  data:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: data
+  config:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: config
+  logs:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: logs
+  additionalStorages: []
+
+notes:
+  custom: |
+    GitLab will take a few minutes to start and initialize on its first run.
+    Access the web interface to configure the administrative user.

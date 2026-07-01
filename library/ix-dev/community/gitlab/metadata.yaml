@@ -1,0 +1,8 @@
+runAsContext:
+  - userName: gitlab
+    groupName: gitlab
+    gid: 1000
+    uid: 1000
+    description: GitLab can run as a non-root user, currently only 1000 works.
+capabilities: []
+hostMounts: []
