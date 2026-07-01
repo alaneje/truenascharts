@@ -24,8 +24,9 @@ jobs:
           echo "Running TrueNAS catalog generator..."
           docker run --rm \
             -v ${{ github.workspace }}:/catalog \
+            --entrypoint /bin/sh \
             ixsystems/catalog_validation:latest \
-            catalog_update update --path /catalog
+            -c "git config --global --add safe.directory /catalog && catalog_update update --path /catalog"
 
       - name: Commit and Push changes
         run: |
