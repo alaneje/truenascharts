@@ -3,14 +3,14 @@
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/charts/charts/charts/home-assistant/2.0.67",
-        "last_update": "2025-03-06 08:27:48",
+        "location": "/catalog/charts/home-assistant/2.0.67",
+        "last_update": "2026-07-01 08:51:14",
         "required_features": [
-            "definitions/timezone",
+            "normalize/acl",
             "normalize/ixVolume",
-            "normalize/acl"
+            "definitions/timezone"
         ],
-        "human_version": "2025.3.0_2.0.67",
+        "human_version": "2026.6.4_2.0.67",
         "version": "2.0.67",
         "chart_metadata": {
             "name": "home-assistant",
@@ -21,7 +21,7 @@
             "type": "application",
             "version": "2.0.67",
             "apiVersion": "v2",
-            "appVersion": "2025.3.0",
+            "appVersion": "2026.6.4",
             "kubeVersion": ">=1.16.0-0",
             "maintainers": [
                 {
@@ -2100,11 +2100,11 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/charts/home-assistant/1.0.130",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/catalog/charts/home-assistant/1.0.130",
+        "last_update": "2024-01-19 12:10:17",
         "required_features": [
-            "definitions/timezone",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone"
         ],
         "human_version": "2024.1.3_1.0.130",
         "version": "1.0.130",

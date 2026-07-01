@@ -3,11 +3,11 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/nginx-proxy-manager/1.0.36",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/catalog/community/nginx-proxy-manager/1.0.36",
+        "last_update": "2025-02-10 11:35:38",
         "required_features": [
-            "definitions/timezone",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone"
         ],
         "human_version": "2.12.3_1.0.36",
         "version": "1.0.36",

@@ -3,14 +3,14 @@
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/minecraft/1.2.26",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/catalog/community/minecraft/1.2.26",
+        "last_update": "2026-07-01 09:23:38",
         "required_features": [
-            "definitions/timezone",
+            "normalize/acl",
             "normalize/ixVolume",
-            "normalize/acl"
+            "definitions/timezone"
         ],
-        "human_version": "2025.2.1_1.2.26",
+        "human_version": "2026.6.1_1.2.26",
         "version": "1.2.26",
         "chart_metadata": {
             "name": "minecraft",
@@ -21,7 +21,7 @@
             "type": "application",
             "version": "1.2.26",
             "apiVersion": "v2",
-            "appVersion": "2025.2.1",
+            "appVersion": "2026.6.1",
             "kubeVersion": ">=1.16.0-0",
             "maintainers": [
                 {
@@ -218,6 +218,26 @@
                                         {
                                             "value": "j21alpineImage",
                                             "description": "Java 21 HotSpot (Alpine)"
+                                        },
+                                        {
+                                            "value": "j16Image",
+                                            "description": "Java 16 HotSpot (Ubuntu)"
+                                        },
+                                        {
+                                            "value": "j21jdkImage",
+                                            "description": "Java 21 JDK (Ubuntu)"
+                                        },
+                                        {
+                                            "value": "j25Image",
+                                            "description": "Java 25 HotSpot (Ubuntu)"
+                                        },
+                                        {
+                                            "value": "j25jdkImage",
+                                            "description": "Java 25 JDK (Ubuntu)"
+                                        },
+                                        {
+                                            "value": "j25alpineImage",
+                                            "description": "Java 25 HotSpot (Alpine)"
                                         }
                                     ]
                                 }

@@ -3,13 +3,13 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/ddns-updater/1.0.34",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/catalog/community/ddns-updater/1.0.34",
+        "last_update": "2026-07-01 08:51:14",
         "required_features": [
-            "definitions/timezone",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone"
         ],
-        "human_version": "2.9.0_1.0.34",
+        "human_version": "v2.10.0_1.0.34",
         "version": "1.0.34",
         "chart_metadata": {
             "name": "ddns-updater",
@@ -20,7 +20,7 @@
             "type": "application",
             "version": "1.0.34",
             "apiVersion": "v2",
-            "appVersion": "2.9.0",
+            "appVersion": "v2.10.0",
             "kubeVersion": ">=1.16.0-0",
             "maintainers": [
                 {

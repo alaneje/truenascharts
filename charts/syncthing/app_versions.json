@@ -3,11 +3,11 @@
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/charts/charts/charts/syncthing/2.0.16",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/catalog/charts/syncthing/2.0.16",
+        "last_update": "2025-01-13 07:59:28",
         "required_features": [
-            "normalize/ixVolume",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "1.29.2_2.0.16",
         "version": "2.0.16",
@@ -1170,11 +1170,11 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/charts/syncthing/1.0.42",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/catalog/charts/syncthing/1.0.42",
+        "last_update": "2024-02-19 11:57:46",
         "required_features": [
-            "validations/lockedHostPath",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "validations/lockedHostPath"
         ],
         "human_version": "1.27.3_1.0.42",
         "version": "1.0.42",

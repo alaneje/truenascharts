@@ -1,0 +1,362 @@
+{
+    "1.0.0": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/catalog/community/postgresql/1.0.0",
+        "last_update": "2026-07-01 09:38:30",
+        "required_features": [],
+        "human_version": "16_1.0.0",
+        "version": "1.0.0",
+        "chart_metadata": {
+            "name": "postgresql",
+            "description": "PostgreSQL Database Server",
+            "annotations": {
+                "title": "PostgreSQL"
+            },
+            "type": "application",
+            "version": "1.0.0",
+            "apiVersion": "v2",
+            "appVersion": "16",
+            "kubeVersion": ">=1.16.0-0",
+            "maintainers": [
+                {
+                    "name": "truenas",
+                    "url": "https://www.truenas.com/",
+                    "email": "dev@ixsystems.com"
+                }
+            ],
+            "dependencies": [
+                {
+                    "name": "common",
+                    "repository": "file://../../../common",
+                    "version": "1.2.9"
+                }
+            ],
+            "home": "https://hub.docker.com/_/postgres",
+            "icon": "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
+            "sources": [
+                "https://hub.docker.com/_/postgres"
+            ],
+            "keywords": [
+                "database",
+                "postgresql"
+            ]
+        },
+        "app_metadata": {
+            "runAsContext": [
+                {
+                    "userName": "postgres",
+                    "groupName": "postgres",
+                    "uid": 999,
+                    "gid": 999,
+                    "description": "PostgreSQL Service User"
+                }
+            ],
+            "hostMounts": []
+        },
+        "schema": {
+            "groups": [
+                {
+                    "name": "PostgreSQL Configuration",
+                    "description": "Configure PostgreSQL Options"
+                },
+                {
+                    "name": "Network Configuration",
+                    "description": "Configure Network for PostgreSQL"
+                },
+                {
+                    "name": "Storage Configuration",
+                    "description": "Configure Storage for PostgreSQL"
+                },
+                {
+                    "name": "Resources Configuration",
+                    "description": "Configure Resources for PostgreSQL"
+                }
+            ],
+            "questions": [
+                {
+                    "variable": "postgresqlNetwork",
+                    "label": "",
+                    "group": "Network Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "serverPort",
+                                "label": "Server Port",
+                                "description": "The TCP port for PostgreSQL.",
+                                "schema": {
+                                    "type": "int",
+                                    "default": 5432,
+                                    "min": 1,
+                                    "max": 65535,
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "hostNetwork",
+                                "label": "Host Network",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": false
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "postgresqlConfig",
+                    "label": "",
+                    "group": "PostgreSQL Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "user",
+                                "label": "Postgres User",
+                                "schema": {
+                                    "type": "string",
+                                    "default": "postgres",
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "password",
+                                "label": "Postgres Password",
+                                "schema": {
+                                    "type": "string",
+                                    "default": "changeme",
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "database",
+                                "label": "Postgres Database",
+                                "schema": {
+                                    "type": "string",
+                                    "default": "postgres",
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "additionalEnvs",
+                                "label": "Additional Environment Variables",
+                                "schema": {
+                                    "type": "list",
+                                    "items": [
+                                        {
+                                            "variable": "env",
+                                            "label": "Environment Variable",
+                                            "schema": {
+                                                "type": "dict",
+                                                "attrs": [
+                                                    {
+                                                        "variable": "name",
+                                                        "label": "Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "value",
+                                                        "label": "Value",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "postgresqlStorage",
+                    "label": "",
+                    "group": "Storage Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "data",
+                                "label": "PostgreSQL Data Storage",
+                                "description": "Persistent storage for PostgreSQL data",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "pvc",
+                                                "enum": [
+                                                    {
+                                                        "value": "pvc",
+                                                        "description": "PVC"
+                                                    },
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "ixVolume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "datasetName",
+                                            "label": "Dataset Name",
+                                            "schema": {
+                                                "type": "string",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPath",
+                                            "label": "Host Path",
+                                            "schema": {
+                                                "type": "hostpath",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "additionalStorages",
+                                "label": "Additional Storages",
+                                "schema": {
+                                    "type": "list",
+                                    "items": [
+                                        {
+                                            "variable": "storage",
+                                            "label": "Storage",
+                                            "schema": {
+                                                "type": "dict",
+                                                "attrs": [
+                                                    {
+                                                        "variable": "mountPath",
+                                                        "label": "Mount Path",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "type",
+                                                        "label": "Type",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "hostPath",
+                                                            "enum": [
+                                                                {
+                                                                    "value": "hostPath",
+                                                                    "description": "Host Path"
+                                                                },
+                                                                {
+                                                                    "value": "ixVolume",
+                                                                    "description": "ixVolume"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "show_if": [
+                                                                [
+                                                                    "type",
+                                                                    "=",
+                                                                    "ixVolume"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "show_if": [
+                                                                [
+                                                                    "type",
+                                                                    "=",
+                                                                    "hostPath"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "resources",
+                    "label": "",
+                    "group": "Resources Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "limits",
+                                "label": "Limits",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "cpu",
+                                            "label": "CPU",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "2000m"
+                                            }
+                                        },
+                                        {
+                                            "variable": "memory",
+                                            "label": "Memory",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "4Gi"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "app_readme": "<p>PostgreSQL Database Server</p>",
+        "detailed_readme": "<h1>PostgreSQL</h1>\n<p>Simple to set up PostgreSQL database server on TrueNAS SCALE.</p>",
+        "changelog": null
+    }
+}

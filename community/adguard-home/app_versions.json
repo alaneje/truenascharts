@@ -3,8 +3,8 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/adguard-home/1.0.57",
-        "last_update": "2026-06-03 06:28:48",
+        "location": "/catalog/community/adguard-home/1.0.57",
+        "last_update": "2026-06-03 06:28:49",
         "required_features": [
             "normalize/ixVolume"
         ],
@@ -333,7 +333,7 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/adguard-home/1.0.56",
+        "location": "/catalog/community/adguard-home/1.0.56",
         "last_update": "2026-05-22 05:41:53",
         "required_features": [
             "normalize/ixVolume"
@@ -663,7 +663,7 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/adguard-home/1.0.55",
+        "location": "/catalog/community/adguard-home/1.0.55",
         "last_update": "2026-05-20 05:45:14",
         "required_features": [
             "normalize/ixVolume"
@@ -993,8 +993,8 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/adguard-home/1.0.54",
-        "last_update": "2026-04-17 04:34:13",
+        "location": "/catalog/community/adguard-home/1.0.54",
+        "last_update": "2026-04-17 04:34:14",
         "required_features": [
             "normalize/ixVolume"
         ],
@@ -1323,7 +1323,7 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/adguard-home/1.0.53",
+        "location": "/catalog/community/adguard-home/1.0.53",
         "last_update": "2026-03-11 03:42:43",
         "required_features": [
             "normalize/ixVolume"
@@ -1653,8 +1653,8 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/adguard-home/1.0.52",
-        "last_update": "2026-02-20 03:58:26",
+        "location": "/catalog/community/adguard-home/1.0.52",
+        "last_update": "2026-02-20 03:58:27",
         "required_features": [
             "normalize/ixVolume"
         ],
@@ -1983,8 +1983,8 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/adguard-home/1.0.51",
-        "last_update": "2026-01-12 06:50:40",
+        "location": "/catalog/community/adguard-home/1.0.51",
+        "last_update": "2026-01-12 06:50:41",
         "required_features": [
             "normalize/ixVolume"
         ],
@@ -2313,8 +2313,8 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/adguard-home/1.0.50",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/catalog/community/adguard-home/1.0.50",
+        "last_update": "2025-02-21 12:29:18",
         "required_features": [
             "normalize/ixVolume"
         ],

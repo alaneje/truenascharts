@@ -3,13 +3,13 @@
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/charts/charts/enterprise/syncthing/1.2.4",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/catalog/enterprise/syncthing/1.2.4",
+        "last_update": "2024-11-11 12:52:50",
         "required_features": [
             "normalize/acl",
-            "definitions/timezone",
             "normalize/ixVolume",
-            "definitions/certificate"
+            "definitions/certificate",
+            "definitions/timezone"
         ],
         "human_version": "1.28.0_1.2.4",
         "version": "1.2.4",

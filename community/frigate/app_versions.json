@@ -3,12 +3,12 @@
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/frigate/1.2.9",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/catalog/community/frigate/1.2.9",
+        "last_update": "2025-02-10 11:35:38",
         "required_features": [
-            "definitions/gpuConfiguration",
+            "normalize/acl",
             "normalize/ixVolume",
-            "normalize/acl"
+            "definitions/gpuConfiguration"
         ],
         "human_version": "0.15.0_1.2.9",
         "version": "1.2.9",

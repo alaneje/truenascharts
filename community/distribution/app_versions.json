@@ -3,8 +3,8 @@
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/distribution/1.2.4",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/catalog/community/distribution/1.2.4",
+        "last_update": "2024-01-22 14:14:24",
         "required_features": [
             "normalize/acl",
             "normalize/ixVolume",

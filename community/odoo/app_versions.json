@@ -3,11 +3,11 @@
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/odoo/2.0.8",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/catalog/community/odoo/2.0.8",
+        "last_update": "2024-02-23 09:53:28",
         "required_features": [
-            "normalize/ixVolume",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "17.0_2.0.8",
         "version": "2.0.8",
@@ -1995,11 +1995,11 @@
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/odoo/1.1.1",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/catalog/community/odoo/1.1.1",
+        "last_update": "2023-11-26 09:29:22",
         "required_features": [
-            "normalize/ixVolume",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "16.0_1.1.1",
         "version": "1.1.1",

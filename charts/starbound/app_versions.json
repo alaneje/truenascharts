@@ -1,0 +1,342 @@
+{
+    "1.0.0": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/catalog/charts/starbound/1.0.0",
+        "last_update": "2026-07-01 09:20:33",
+        "required_features": [],
+        "human_version": "latest_1.0.0",
+        "version": "1.0.0",
+        "chart_metadata": {
+            "name": "starbound",
+            "description": "Starbound Dedicated Server",
+            "annotations": {
+                "title": "Starbound"
+            },
+            "type": "application",
+            "version": "1.0.0",
+            "apiVersion": "v2",
+            "appVersion": "latest",
+            "kubeVersion": ">=1.16.0-0",
+            "maintainers": [
+                {
+                    "name": "truenas",
+                    "url": "https://www.truenas.com/",
+                    "email": "dev@ixsystems.com"
+                }
+            ],
+            "dependencies": [
+                {
+                    "name": "common",
+                    "repository": "file://../../../common",
+                    "version": "1.2.9"
+                }
+            ],
+            "home": "https://hub.docker.com/r/hetsh/starbound",
+            "icon": "https://media.sys.truenas.net/apps/ix-chart/icons/icon.png",
+            "sources": [
+                "https://hub.docker.com/r/hetsh/starbound"
+            ],
+            "keywords": [
+                "starbound",
+                "game",
+                "server"
+            ]
+        },
+        "app_metadata": {
+            "runAsContext": [
+                {
+                    "userName": "starbound",
+                    "groupName": "starbound",
+                    "uid": 1370,
+                    "gid": 1370,
+                    "description": "Starbound Service User"
+                }
+            ],
+            "capabilities": [
+                {
+                    "name": "SYS_MODULE",
+                    "description": "Allow loading kernel modules"
+                }
+            ],
+            "hostMounts": []
+        },
+        "schema": {
+            "groups": [
+                {
+                    "name": "Starbound Configuration",
+                    "description": "Configure Starbound Options"
+                },
+                {
+                    "name": "Network Configuration",
+                    "description": "Configure Network for Starbound"
+                },
+                {
+                    "name": "Storage Configuration",
+                    "description": "Configure Storage for Starbound"
+                },
+                {
+                    "name": "Resources Configuration",
+                    "description": "Configure Resources for Starbound"
+                }
+            ],
+            "questions": [
+                {
+                    "variable": "starboundNetwork",
+                    "label": "",
+                    "group": "Network Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "serverPort",
+                                "label": "Server Port",
+                                "description": "The TCP port for the Starbound server.",
+                                "schema": {
+                                    "type": "int",
+                                    "default": 21025,
+                                    "min": 1,
+                                    "max": 65535,
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "hostNetwork",
+                                "label": "Host Network",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": false
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "starboundConfig",
+                    "label": "",
+                    "group": "Starbound Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "additionalEnvs",
+                                "label": "Additional Environment Variables",
+                                "schema": {
+                                    "type": "list",
+                                    "items": [
+                                        {
+                                            "variable": "env",
+                                            "label": "Environment Variable",
+                                            "schema": {
+                                                "type": "dict",
+                                                "attrs": [
+                                                    {
+                                                        "variable": "name",
+                                                        "label": "Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "value",
+                                                        "label": "Value",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "starboundStorage",
+                    "label": "",
+                    "group": "Storage Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "data",
+                                "label": "Starbound Data Storage",
+                                "description": "Persistent storage for Starbound server data",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "pvc",
+                                                "enum": [
+                                                    {
+                                                        "value": "pvc",
+                                                        "description": "PVC"
+                                                    },
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "ixVolume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "datasetName",
+                                            "label": "Dataset Name",
+                                            "schema": {
+                                                "type": "string",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPath",
+                                            "label": "Host Path",
+                                            "schema": {
+                                                "type": "hostpath",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "additionalStorages",
+                                "label": "Additional Storages",
+                                "schema": {
+                                    "type": "list",
+                                    "items": [
+                                        {
+                                            "variable": "storage",
+                                            "label": "Storage",
+                                            "schema": {
+                                                "type": "dict",
+                                                "attrs": [
+                                                    {
+                                                        "variable": "mountPath",
+                                                        "label": "Mount Path",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "type",
+                                                        "label": "Type",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "hostPath",
+                                                            "enum": [
+                                                                {
+                                                                    "value": "hostPath",
+                                                                    "description": "Host Path"
+                                                                },
+                                                                {
+                                                                    "value": "ixVolume",
+                                                                    "description": "ixVolume"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "show_if": [
+                                                                [
+                                                                    "type",
+                                                                    "=",
+                                                                    "ixVolume"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "show_if": [
+                                                                [
+                                                                    "type",
+                                                                    "=",
+                                                                    "hostPath"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "resources",
+                    "label": "",
+                    "group": "Resources Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "limits",
+                                "label": "Limits",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "cpu",
+                                            "label": "CPU",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "4000m"
+                                            }
+                                        },
+                                        {
+                                            "variable": "memory",
+                                            "label": "Memory",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "8Gi"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "app_readme": "<p>Starbound Dedicated Server</p>",
+        "detailed_readme": "<h1>Starbound</h1>\n<p>Simple to set up Starbound server on TrueNAS SCALE.</p>",
+        "changelog": null
+    }
+}
