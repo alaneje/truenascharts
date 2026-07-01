@@ -1,0 +1,24 @@
+name: postgresql
+description: PostgreSQL Database Server
+annotations:
+  title: PostgreSQL
+type: application
+version: 1.0.0
+apiVersion: v2
+appVersion: "16"
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: truenas
+    url: https://www.truenas.com/
+    email: dev@ixsystems.com
+dependencies:
+  - name: common
+    repository: file://../../../common
+    version: 1.2.9
+home: https://hub.docker.com/_/postgres
+icon: https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg
+sources:
+  - https://hub.docker.com/_/postgres
+keywords:
+  - database
+  - postgresql

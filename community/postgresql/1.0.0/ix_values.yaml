@@ -1,0 +1,25 @@
+image:
+  repository: postgres
+  pullPolicy: IfNotPresent
+  tag: "16"
+
+postgresqlNetwork:
+  hostNetwork: false
+  serverPort: 5432
+
+postgresqlConfig:
+  user: "postgres"
+  password: "changeme"
+  database: "postgres"
+  additionalEnvs: []
+
+postgresqlStorage:
+  data:
+    type: pvc
+    datasetName: data
+  additionalStorages: []
+
+resources:
+  limits:
+    cpu: 2000m
+    memory: 4Gi

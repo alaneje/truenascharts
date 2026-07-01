@@ -1,0 +1,168 @@
+groups:
+  - name: PostgreSQL Configuration
+    description: Configure PostgreSQL Options
+  - name: Network Configuration
+    description: Configure Network for PostgreSQL
+  - name: Storage Configuration
+    description: Configure Storage for PostgreSQL
+  - name: Resources Configuration
+    description: Configure Resources for PostgreSQL
+
+questions:
+  - variable: postgresqlNetwork
+    label: ""
+    group: Network Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: serverPort
+          label: Server Port
+          description: The TCP port for PostgreSQL.
+          schema:
+            type: int
+            default: 5432
+            min: 1
+            max: 65535
+            required: true
+        - variable: hostNetwork
+          label: Host Network
+          schema:
+            type: boolean
+            default: false
+
+  - variable: postgresqlConfig
+    label: ""
+    group: PostgreSQL Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: user
+          label: Postgres User
+          schema:
+            type: string
+            default: "postgres"
+            required: true
+        - variable: password
+          label: Postgres Password
+          schema:
+            type: string
+            default: "changeme"
+            required: true
+        - variable: database
+          label: Postgres Database
+          schema:
+            type: string
+            default: "postgres"
+            required: true
+        - variable: additionalEnvs
+          label: Additional Environment Variables
+          schema:
+            type: list
+            items:
+              - variable: env
+                label: Environment Variable
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                        required: true
+                    - variable: value
+                      label: Value
+                      schema:
+                        type: string
+                        required: true
+
+  - variable: postgresqlStorage
+    label: ""
+    group: Storage Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: data
+          label: PostgreSQL Data Storage
+          description: Persistent storage for PostgreSQL data
+          schema:
+            type: dict
+            attrs:
+              - variable: type
+                label: Type
+                schema:
+                  type: string
+                  default: pvc
+                  enum:
+                    - value: pvc
+                      description: PVC
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: ixVolume
+              - variable: datasetName
+                label: Dataset Name
+                schema:
+                  type: string
+                  show_if: [["type", "=", "ixVolume"]]
+              - variable: hostPath
+                label: Host Path
+                schema:
+                  type: hostpath
+                  show_if: [["type", "=", "hostPath"]]
+        - variable: additionalStorages
+          label: Additional Storages
+          schema:
+            type: list
+            items:
+              - variable: storage
+                label: Storage
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: mountPath
+                      label: Mount Path
+                      schema:
+                        type: string
+                        required: true
+                    - variable: type
+                      label: Type
+                      schema:
+                        type: string
+                        default: hostPath
+                        enum:
+                          - value: hostPath
+                            description: Host Path
+                          - value: ixVolume
+                            description: ixVolume
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        show_if: [["type", "=", "ixVolume"]]
+                    - variable: hostPath
+                      label: Host Path
+                      schema:
+                        type: hostpath
+                        show_if: [["type", "=", "hostPath"]]
+
+  - variable: resources
+    label: ""
+    group: Resources Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: limits
+          label: Limits
+          schema:
+            type: dict
+            attrs:
+              - variable: cpu
+                label: CPU
+                schema:
+                  type: string
+                  default: "2000m"
+              - variable: memory
+                label: Memory
+                schema:
+                  type: string
+                  default: "4Gi"

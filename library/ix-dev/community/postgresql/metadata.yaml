@@ -1,0 +1,7 @@
+runAsContext:
+  - userName: postgres
+    groupName: postgres
+    uid: 999
+    gid: 999
+    description: PostgreSQL Service User
+hostMounts: []
