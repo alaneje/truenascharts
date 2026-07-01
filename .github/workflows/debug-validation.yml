@@ -1,0 +1,41 @@
+name: "Debug Validation Error"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  debug-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run debug script inside Docker
+        run: |
+          cat << 'EOF' > debug.py
+          import sys
+          import json
+          from catalog_validation.scripts.catalog_update import get_trains, validate_train_data
+          from catalog_validation.exceptions import ValidationErrors
+
+          try:
+              catalog_data, versions_data = get_trains('/catalog')
+              for train, apps in catalog_data.items():
+                  for app_name, app_data in apps.items():
+                      try:
+                          validate_train_data({train: {app_name: app_data}})
+                      except ValidationErrors as e:
+                          print(f"FAILED APP: {train}/{app_name}")
+                          print(f"ERRORS: {e.errors}")
+                          print(f"JSON: {json.dumps(app_data, indent=2)}")
+                          sys.exit(1)
+              print("ALL PASSED?!")
+          except Exception as e:
+              print("FATAL ERROR:", str(e))
+          EOF
+          docker run --rm -v ${{ github.workspace }}:/catalog ixsystems/catalog_validation:latest python3 /catalog/debug.py
