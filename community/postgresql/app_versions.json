@@ -4,7 +4,7 @@
         "supported": true,
         "healthy_error": null,
         "location": "/catalog/community/postgresql/1.0.0",
-        "last_update": "2026-07-01 09:38:30",
+        "last_update": "2026-07-01 15:47:39",
         "required_features": [],
         "human_version": "16_1.0.0",
         "version": "1.0.0",

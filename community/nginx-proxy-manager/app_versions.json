@@ -6,8 +6,8 @@
         "location": "/catalog/community/nginx-proxy-manager/1.0.36",
         "last_update": "2025-02-10 11:35:38",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/ixVolume"
         ],
         "human_version": "2.12.3_1.0.36",
         "version": "1.0.36",

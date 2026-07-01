@@ -7,8 +7,8 @@
         "last_update": "2025-02-21 12:29:18",
         "required_features": [
             "definitions/nodeIP",
-            "definitions/timezone",
             "normalize/acl",
+            "definitions/timezone",
             "normalize/ixVolume",
             "definitions/certificate"
         ],
@@ -876,9 +876,9 @@
         "location": "/catalog/charts/collabora/1.2.30",
         "last_update": "2024-02-07 12:33:54",
         "required_features": [
+            "definitions/timezone",
             "definitions/certificate",
-            "definitions/nodeIP",
-            "definitions/timezone"
+            "definitions/nodeIP"
         ],
         "human_version": "23.05.8.2.1_1.2.30",
         "version": "1.2.30",
