@@ -6,10 +6,10 @@
         "location": "/catalog/community/n8n/1.2.115",
         "last_update": "2025-03-05 14:29:05",
         "required_features": [
-            "definitions/nodeIP",
+            "normalize/ixVolume",
             "definitions/certificate",
-            "normalize/acl",
-            "normalize/ixVolume"
+            "definitions/nodeIP",
+            "normalize/acl"
         ],
         "human_version": "1.82.1_1.2.115",
         "version": "1.2.115",
