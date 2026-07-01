@@ -1,0 +1,22 @@
+image:
+  repository: hetsh/starbound
+  pullPolicy: IfNotPresent
+  tag: latest
+
+starboundNetwork:
+  hostNetwork: false
+  serverPort: 21025
+
+starboundConfig:
+  additionalEnvs: []
+
+starboundStorage:
+  data:
+    type: pvc
+    datasetName: data
+  additionalStorages: []
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi

@@ -1,0 +1,10 @@
+runAsContext:
+  - userName: starbound
+    groupName: starbound
+    uid: 1370
+    gid: 1370
+    description: Starbound Service User
+capabilities:
+  - name: SYS_MODULE
+    description: Allow loading kernel modules
+hostMounts: []
