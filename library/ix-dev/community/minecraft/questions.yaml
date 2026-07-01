@@ -77,6 +77,16 @@ questions:
                 description: Java 21 GraalVM (Oracle)
               - value: j21alpineImage
                 description: Java 21 HotSpot (Alpine)
+              - value: j16Image
+                description: Java 16 HotSpot (Ubuntu)
+              - value: j21jdkImage
+                description: Java 21 JDK (Ubuntu)
+              - value: j25Image
+                description: Java 25 HotSpot (Ubuntu)
+              - value: j25jdkImage
+                description: Java 25 JDK (Ubuntu)
+              - value: j25alpineImage
+                description: Java 25 HotSpot (Alpine)
         - variable: type
           label: Type
           description: |
