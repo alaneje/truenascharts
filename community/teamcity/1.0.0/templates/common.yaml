@@ -1,0 +1,19 @@
+{{- include "ix.v1.common.loader.init" . -}}
+
+{{/* Run the validation */}}
+{{- include "teamcity.validation" $ -}}
+
+{{/* Generate a new random pass on each start to password protect certificate */}}
+{{- if .Values.teamcityNetwork.certificateID -}}
+  {{- $_ := set .Values "teamcityCertRandomPass" (randAlphaNum 32) -}}
+{{- else if .Values.teamcityCertRandomPass -}} {{/* Cleanup if no cert is defined */}}
+  {{- $_ := unset .Values "teamcityCertRandomPass" -}}
+{{- end -}}
+
+{{/* Merge the templates with Values */}}
+{{- $_ := mustMergeOverwrite .Values (include "teamcity.workload" $ | fromYaml) -}}
+
+{{/* Create the configmap for portal manually*/}}
+{{- include "teamcity.portal" $ -}}
+
+{{- include "ix.v1.common.loader.apply" . -}}

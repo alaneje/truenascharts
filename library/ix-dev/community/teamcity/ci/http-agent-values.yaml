@@ -1,0 +1,7 @@
+teamcityStorage:
+  home:
+    type: pvc
+
+teamcityNetwork:
+  agent: true
+  agentPort: 31000

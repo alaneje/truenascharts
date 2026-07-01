@@ -1,0 +1,3 @@
+teamcityStorage:
+  home:
+    type: pvc

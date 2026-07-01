@@ -1,0 +1,26 @@
+name: teamcity
+description: JetBrains TeamCity server
+annotations:
+  title: TeamCity
+type: application
+version: 1.0.0
+apiVersion: v2
+appVersion: latest
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: truenas
+    url: https://www.truenas.com/
+    email: dev@ixsystems.com
+dependencies:
+  - name: common
+    repository: file://../../../common
+    version: 1.2.9
+home: https://www.jetbrains.com/teamcity/
+icon: https://upload.wikimedia.org/wikipedia/commons/e/e0/TeamCity_Icon.png
+sources:
+  - https://hub.docker.com/r/jetbrains/teamcity-server
+  - https://github.com/truenas/charts/tree/master/community/teamcity
+  - https://www.jetbrains.com/teamcity/
+keywords:
+  - automation
+  - ci/cd

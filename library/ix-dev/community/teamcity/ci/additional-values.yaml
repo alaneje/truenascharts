@@ -1,0 +1,24 @@
+teamcityStorage:
+  home:
+    type: pvc
+  additionalStorages:
+    - type: pvc
+      mountPath: /workspace1
+    - type: pvc
+      mountPath: /workspace2
+
+teamcityConfig:
+  teamcityOpts:
+    - useJmx
+    - sessionTimeout=100
+  teamcityJavaOpts:
+    - property: hudson.footerURL
+      value: https://teamcity.example.com
+    - property: teamcity.CLI.disabled
+      value: "true"
+
+  additionalEnvs:
+    - name: PLUGINS_FORCE_UPGRADE
+      value: "true"
+    - name: TRY_UPGRADE_IF_NO_MARKER
+      value: "true"

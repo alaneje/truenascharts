@@ -1,0 +1,2 @@
+{{- define "teamcity.configuration" -}}
+{{- end -}}
