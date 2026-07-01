@@ -25,7 +25,7 @@ jobs:
           docker run --rm \
             -v ${{ github.workspace }}:/catalog \
             ixsystems/catalog_validation:latest \
-            catalog_update --path /catalog
+            catalog_update update --path /catalog
 
       - name: Commit and Push changes
         run: |
