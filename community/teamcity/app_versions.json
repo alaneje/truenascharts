@@ -1,27 +1,28 @@
 {
-    "1.2.24": {
+    "1.0.0": {
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/catalog/community/actual-budget/1.2.24",
-        "last_update": "2025-03-04 12:37:13",
+        "location": "/catalog/community/teamcity/1.0.0",
+        "last_update": "2026-07-01 15:37:59",
         "required_features": [
             "normalize/acl",
             "definitions/certificate",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone"
         ],
-        "human_version": "25.3.1_1.2.24",
-        "version": "1.2.24",
+        "human_version": "latest_1.0.0",
+        "version": "1.0.0",
         "chart_metadata": {
-            "name": "actual-budget",
-            "description": "Actual Budget is a super fast and privacy-focused app for managing your finances.",
+            "name": "teamcity",
+            "description": "JetBrains TeamCity server",
             "annotations": {
-                "title": "Actual Budget"
+                "title": "TeamCity"
             },
             "type": "application",
-            "version": "1.2.24",
+            "version": "1.0.0",
             "apiVersion": "v2",
-            "appVersion": "25.3.1",
+            "appVersion": "latest",
             "kubeVersion": ">=1.16.0-0",
             "maintainers": [
                 {
@@ -37,26 +38,26 @@
                     "version": "1.2.9"
                 }
             ],
-            "home": "https://actualbudget.org/",
-            "icon": "https://media.sys.truenas.net/apps/actual-budget/icons/icon.png",
+            "home": "https://www.jetbrains.com/teamcity/",
+            "icon": "https://upload.wikimedia.org/wikipedia/commons/e/e0/TeamCity_Icon.png",
             "sources": [
-                "https://github.com/actualbudget/actual-server",
-                "https://github.com/truenas/charts/tree/master/community/actual-budget",
-                "https://hub.docker.com/r/actualbudget/actual-server"
+                "https://hub.docker.com/r/jetbrains/teamcity-server",
+                "https://github.com/truenas/charts/tree/master/community/teamcity",
+                "https://www.jetbrains.com/teamcity/"
             ],
             "keywords": [
-                "finance",
-                "budget"
+                "automation",
+                "ci/cd"
             ]
         },
         "app_metadata": {
             "runAsContext": [
                 {
-                    "userName": "actual",
-                    "groupName": "actual",
-                    "gid": 568,
-                    "uid": 568,
-                    "description": "Actual Budget can run as any non-root user."
+                    "userName": "teamcity",
+                    "groupName": "teamcity",
+                    "gid": 1000,
+                    "uid": 1000,
+                    "description": "TeamCity runs as a non-root user."
                 }
             ],
             "capabilities": [],
@@ -65,24 +66,24 @@
         "schema": {
             "groups": [
                 {
-                    "name": "Actual Budget Configuration",
-                    "description": "Configure Actual Budget"
+                    "name": "TeamCity Configuration",
+                    "description": "Configure TeamCity"
                 },
                 {
                     "name": "User and Group Configuration",
-                    "description": "Configure User and Group for Actual Budget"
+                    "description": "Configure User and Group for TeamCity"
                 },
                 {
                     "name": "Network Configuration",
-                    "description": "Configure Network for Actual Budget"
+                    "description": "Configure Network for TeamCity"
                 },
                 {
                     "name": "Storage Configuration",
-                    "description": "Configure Storage for Actual Budget"
+                    "description": "Configure Storage for TeamCity"
                 },
                 {
                     "name": "Resources Configuration",
-                    "description": "Configure Resources for Actual Budget"
+                    "description": "Configure Resources for TeamCity"
                 }
             ],
             "portals": {
@@ -101,16 +102,39 @@
             },
             "questions": [
                 {
-                    "variable": "actualConfig",
+                    "variable": "TZ",
+                    "group": "TeamCity Configuration",
+                    "label": "Timezone",
+                    "schema": {
+                        "type": "string",
+                        "default": "America/Los_Angeles",
+                        "required": true,
+                        "$ref": [
+                            "definitions/timezone"
+                        ],
+                        "enum": [
+                            {
+                                "value": "Asia/Damascus",
+                                "description": "'Asia/Damascus' timezone"
+                            },
+                            {
+                                "value": "Asia/Saigon",
+                                "description": "'Asia/Saigon' timezone"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "teamcityConfig",
                     "label": "",
-                    "group": "Actual Budget Configuration",
+                    "group": "TeamCity Configuration",
                     "schema": {
                         "type": "dict",
                         "attrs": [
                             {
                                 "variable": "additionalEnvs",
                                 "label": "Additional Environment Variables",
-                                "description": "Configure additional environment variables for Actual Budget.",
+                                "description": "Configure additional environment variables for TeamCity.",
                                 "schema": {
                                     "type": "list",
                                     "default": [],
@@ -147,39 +171,7 @@
                     }
                 },
                 {
-                    "variable": "actualRunAs",
-                    "label": "",
-                    "group": "User and Group Configuration",
-                    "schema": {
-                        "type": "dict",
-                        "attrs": [
-                            {
-                                "variable": "user",
-                                "label": "User ID",
-                                "description": "The user id that Actual Budget will run as.",
-                                "schema": {
-                                    "type": "int",
-                                    "min": 2,
-                                    "default": 568,
-                                    "required": true
-                                }
-                            },
-                            {
-                                "variable": "group",
-                                "label": "Group ID",
-                                "description": "The group id that Actual Budget will run as.",
-                                "schema": {
-                                    "type": "int",
-                                    "min": 2,
-                                    "default": 568,
-                                    "required": true
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "variable": "actualNetwork",
+                    "variable": "teamcityNetwork",
                     "label": "",
                     "group": "Network Configuration",
                     "schema": {
@@ -188,28 +180,19 @@
                             {
                                 "variable": "webPort",
                                 "label": "Web Port",
-                                "description": "The port for the Actual Budget Web UI.",
+                                "description": "The port for the TeamCity Web UI.",
                                 "schema": {
                                     "type": "int",
-                                    "default": 31012,
+                                    "default": 30036,
                                     "min": 9000,
                                     "max": 65535,
                                     "required": true
                                 }
                             },
                             {
-                                "variable": "hostNetwork",
-                                "label": "Host Network",
-                                "description": "Bind to the host network. It's recommended to keep this disabled.</br>\n",
-                                "schema": {
-                                    "type": "boolean",
-                                    "default": false
-                                }
-                            },
-                            {
                                 "variable": "certificateID",
                                 "label": "Certificate",
-                                "description": "The certificate to use for Actual Budget",
+                                "description": "The certificate to use for HTTPS.",
                                 "schema": {
                                     "type": "int",
                                     "null": true,
@@ -224,12 +207,21 @@
                                     ],
                                     "default": null
                                 }
+                            },
+                            {
+                                "variable": "hostNetwork",
+                                "label": "Host Network",
+                                "description": "Bind to the host network. It's recommended to keep this disabled.</br>\n",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": false
+                                }
                             }
                         ]
                     }
                 },
                 {
-                    "variable": "actualStorage",
+                    "variable": "teamcityStorage",
                     "label": "",
                     "group": "Storage Configuration",
                     "schema": {
@@ -237,8 +229,8 @@
                         "attrs": [
                             {
                                 "variable": "data",
-                                "label": "Actual Budget Data Storage",
-                                "description": "The path to store Actual Budget Data.",
+                                "label": "TeamCity Data Storage",
+                                "description": "The path to store TeamCity Data Directory.",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
@@ -557,9 +549,330 @@
                                 }
                             },
                             {
+                                "variable": "logs",
+                                "label": "TeamCity Logs Storage",
+                                "description": "The path to store TeamCity Logs Directory.",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "ixVolume: Is dataset created automatically by the system.</br>\nHost Path: Is a path that already exists on the system.\n",
+                                            "schema": {
+                                                "type": "string",
+                                                "required": true,
+                                                "immutable": true,
+                                                "default": "ixVolume",
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path (Path that already exists on the system)"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "ixVolume (Dataset created automatically by the system)"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "ixVolume Configuration",
+                                            "description": "The configuration for the ixVolume dataset.",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "aclEnable",
+                                                        "label": "Enable ACL",
+                                                        "description": "Enable ACL for the dataset.",
+                                                        "schema": {
+                                                            "type": "boolean",
+                                                            "default": false
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "description": "The name of the dataset to use for storage.",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true,
+                                                            "immutable": true,
+                                                            "hidden": true,
+                                                            "default": "logs"
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "aclEntries",
+                                                        "label": "ACL Configuration",
+                                                        "schema": {
+                                                            "type": "dict",
+                                                            "show_if": [
+                                                                [
+                                                                    "aclEnable",
+                                                                    "=",
+                                                                    true
+                                                                ]
+                                                            ],
+                                                            "attrs": [
+                                                                {
+                                                                    "variable": "path",
+                                                                    "label": "Path",
+                                                                    "description": "Path to perform ACL",
+                                                                    "schema": {
+                                                                        "type": "string",
+                                                                        "hidden": true
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "variable": "entries",
+                                                                    "label": "ACL Entries",
+                                                                    "description": "ACL Entries",
+                                                                    "schema": {
+                                                                        "type": "list",
+                                                                        "items": [
+                                                                            {
+                                                                                "variable": "aclEntry",
+                                                                                "label": "ACL Entry",
+                                                                                "schema": {
+                                                                                    "type": "dict",
+                                                                                    "attrs": [
+                                                                                        {
+                                                                                            "variable": "id_type",
+                                                                                            "label": "ID Type",
+                                                                                            "schema": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                    {
+                                                                                                        "value": "USER",
+                                                                                                        "description": "Entry is for a USER"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "value": "GROUP",
+                                                                                                        "description": "Entry is for a GROUP"
+                                                                                                    }
+                                                                                                ],
+                                                                                                "default": "USER"
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "variable": "id",
+                                                                                            "label": "ID",
+                                                                                            "description": "Make sure to check the ID value is correct and aligns with RunAs user context of the application",
+                                                                                            "schema": {
+                                                                                                "type": "int",
+                                                                                                "required": true,
+                                                                                                "min": 0
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "variable": "access",
+                                                                                            "label": "Access",
+                                                                                            "schema": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                    {
+                                                                                                        "value": "READ",
+                                                                                                        "description": "Read Access"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "value": "MODIFY",
+                                                                                                        "description": "Modify Access"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "value": "FULL_CONTROL",
+                                                                                                        "description": "FULL_CONTROL Access"
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "aclEnable",
+                                                        "label": "Enable ACL",
+                                                        "description": "Enable ACL for the dataset.",
+                                                        "schema": {
+                                                            "type": "boolean",
+                                                            "default": false
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "acl",
+                                                        "label": "ACL Configuration",
+                                                        "schema": {
+                                                            "type": "dict",
+                                                            "show_if": [
+                                                                [
+                                                                    "aclEnable",
+                                                                    "=",
+                                                                    true
+                                                                ]
+                                                            ],
+                                                            "attrs": [
+                                                                {
+                                                                    "variable": "path",
+                                                                    "label": "Host Path",
+                                                                    "description": "Host Path to perform ACL",
+                                                                    "schema": {
+                                                                        "type": "hostpath",
+                                                                        "required": true,
+                                                                        "empty": false
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "variable": "entries",
+                                                                    "label": "ACL Entries",
+                                                                    "description": "ACL Entries",
+                                                                    "schema": {
+                                                                        "type": "list",
+                                                                        "items": [
+                                                                            {
+                                                                                "variable": "aclEntry",
+                                                                                "label": "ACL Entry",
+                                                                                "schema": {
+                                                                                    "type": "dict",
+                                                                                    "attrs": [
+                                                                                        {
+                                                                                            "variable": "id_type",
+                                                                                            "label": "ID Type",
+                                                                                            "schema": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                    {
+                                                                                                        "value": "USER",
+                                                                                                        "description": "Entry is for a USER"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "value": "GROUP",
+                                                                                                        "description": "Entry is for a GROUP"
+                                                                                                    }
+                                                                                                ],
+                                                                                                "default": "USER"
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "variable": "id",
+                                                                                            "label": "ID",
+                                                                                            "description": "Make sure to check the ID value is correct and aligns with RunAs user context of the application",
+                                                                                            "schema": {
+                                                                                                "type": "int",
+                                                                                                "required": true,
+                                                                                                "min": 0
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "variable": "access",
+                                                                                            "label": "Access",
+                                                                                            "schema": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                    {
+                                                                                                        "value": "READ",
+                                                                                                        "description": "Read Access"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "value": "MODIFY",
+                                                                                                        "description": "Modify Access"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "value": "FULL_CONTROL",
+                                                                                                        "description": "FULL_CONTROL Access"
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "variable": "options",
+                                                                    "label": "ACL Options",
+                                                                    "schema": {
+                                                                        "type": "dict",
+                                                                        "attrs": [
+                                                                            {
+                                                                                "variable": "force",
+                                                                                "label": "Force Flag",
+                                                                                "description": "Enabling `Force` applies ACL even if the path has existing data",
+                                                                                "schema": {
+                                                                                    "type": "boolean",
+                                                                                    "default": false
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "$ref": [
+                                                                "normalize/acl"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "The host path to use for storage.",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "show_if": [
+                                                                [
+                                                                    "aclEnable",
+                                                                    "=",
+                                                                    false
+                                                                ]
+                                                            ],
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
                                 "variable": "additionalStorages",
                                 "label": "Additional Storage",
-                                "description": "Additional storage for Actual Budget.",
+                                "description": "Additional storage for TeamCity.",
                                 "schema": {
                                     "type": "list",
                                     "default": [],
@@ -1000,7 +1313,7 @@
                                         {
                                             "variable": "cpu",
                                             "label": "CPU",
-                                            "description": "CPU limit for Actual Budget.",
+                                            "description": "CPU limit for TeamCity.",
                                             "schema": {
                                                 "type": "string",
                                                 "max_length": 6,
@@ -1013,7 +1326,7 @@
                                         {
                                             "variable": "memory",
                                             "label": "Memory",
-                                            "description": "Memory limit for Actual Budget.",
+                                            "description": "Memory limit for TeamCity.",
                                             "schema": {
                                                 "type": "string",
                                                 "max_length": 12,
@@ -1031,8 +1344,8 @@
                 }
             ]
         },
-        "app_readme": "<h1>Actual Budget</h1>\n<p><a href=\"https://actualbudget.org/\">Actual Budget</a> is a super fast and privacy-focused app for managing your finances.</p>",
-        "detailed_readme": "<h1>Actual Budget</h1>\n<p><a href=\"https://actualbudget.org/\">Actual Budget</a> is a super fast and privacy-focused app for managing your finances.</p>",
+        "app_readme": "<h1>TeamCity</h1>\n<p><a href=\"https://www.jetbrains.com/teamcity/\">TeamCity</a>. TeamCity is a continuous integration and continuous deployment server by JetBrains.</p>\n<blockquote>\n<p>When application is installed and on each startup, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>TeamCity</code> directories.\nAfterward, the <code>TeamCity</code> container will run as a <strong>non</strong>-root user (<code>1000</code>).\nAll mounted storage(s) will be <code>chown</code>ed only if the parent directory does not match the user and group (<code>1000</code>).</p>\n</blockquote>",
+        "detailed_readme": "<h1>TeamCity</h1>\n<p><a href=\"https://www.jetbrains.com/teamcity/\">TeamCity</a>. TeamCity is a continuous integration and continuous deployment server by JetBrains.</p>\n<blockquote>\n<p>When application is installed and on each startup, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>TeamCity</code> directories.\nAfterward, the <code>TeamCity</code> container will run as a <strong>non</strong>-root user (<code>1000</code>).\nAll mounted storage(s) will be <code>chown</code>ed only if the parent directory does not match the user and group (<code>1000</code>).</p>\n</blockquote>",
         "changelog": null
     }
 }
