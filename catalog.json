@@ -121,48 +121,6 @@
             ],
             "icon_url": "https://media.sys.truenas.net/apps/emby/icons/icon.png"
         },
-        "plex": {
-            "app_readme": "<h1>Plex</h1>\n<p><a href=\"https://plex.tv\">Plex</a> is a media server that allows you to stream your media to any Plex client.</p>",
-            "categories": [
-                "media"
-            ],
-            "description": "Plex is a media server that allows you to stream your media to any Plex client.",
-            "healthy": true,
-            "healthy_error": null,
-            "home": "https://plex.tv/",
-            "location": "/__w/charts/charts/charts/plex",
-            "latest_version": "2.0.19",
-            "latest_app_version": "1.41.4.9463",
-            "latest_human_version": "1.41.4.9463_2.0.19",
-            "last_update": "2025-03-06 08:26:26",
-            "name": "plex",
-            "recommended": false,
-            "title": "Plex",
-            "maintainers": [
-                {
-                    "name": "truenas",
-                    "url": "https://www.truenas.com/",
-                    "email": "dev@ixsystems.com"
-                }
-            ],
-            "tags": [
-                "entertainment",
-                "movies",
-                "series",
-                "tv",
-                "streaming"
-            ],
-            "screenshots": [
-                "https://media.sys.truenas.net/apps/plex/screenshots/screenshot1.png",
-                "https://media.sys.truenas.net/apps/plex/screenshots/screenshot2.png"
-            ],
-            "sources": [
-                "https://plex.tv/",
-                "https://github.com/truenas/charts/tree/master/charts/plex",
-                "https://hub.docker.com/r/plexinc/pms-docker/"
-            ],
-            "icon_url": "https://media.sys.truenas.net/apps/plex/icons/icon.png"
-        },
         "prometheus": {
             "app_readme": "<h1>Prometheus</h1>\n<p><a href=\"https://prometheus.io/\">Prometheus</a> - Monitoring system and time series database.</p>\n<blockquote>\n<p>When application is installed, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>prometheus</code> directories.\nAfterward, the <code>prometheus</code> container will run as a <strong>non</strong>-root user (Default: <code>568</code>).\nAlso an empty configuration file will be created.</p>\n</blockquote>\n<p>The configuration file is located at <code>/config/prometheus.yml</code> inside the container.\nData is stored at <code>/data</code> inside the container.</p>",
             "categories": [
@@ -306,7 +264,7 @@
             "tags": [],
             "screenshots": [],
             "sources": [],
-            "icon_url": null
+            "icon_url": "https://media.sys.truenas.net/apps/ix-chart/icons/icon.png"
         },
         "netdata": {
             "app_readme": "<h1>Netdata</h1>\n<p><a href=\"https://www.netdata.cloud/\">Netdata</a> is a fast, easy monitoring and troubleshooting system.</p>",
@@ -4313,42 +4271,6 @@
                 "https://github.com/grafana"
             ],
             "icon_url": "https://media.sys.truenas.net/apps/grafana/icons/icon.png"
-        },
-        "plex-auto-languages": {
-            "app_readme": "<h1>Plex Auto Languages</h1>\n<p><a href=\"https://github.com/RemiRigal/Plex-Auto-Languages\">Plex Auto Languages</a> offer automated language selection for Plex TV Shows</p>\n<blockquote>\n<p>When application is installed, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>Plex Auto Languages</code> directories.\nAfterward, the <code>Plex Auto Languages</code> container will run as a <strong>non</strong>-root user (Default: <code>568</code>).\nAll mounted storage(s) will be <code>chown</code>ed only if the parent directory does not match the configured user.</p>\n</blockquote>",
-            "categories": [
-                "media"
-            ],
-            "description": "Plex Auto Languages offer automated language selection for Plex TV Shows",
-            "healthy": true,
-            "healthy_error": null,
-            "home": "https://github.com/RemiRigal/Plex-Auto-Languages",
-            "location": "/__w/charts/charts/community/plex-auto-languages",
-            "latest_version": "1.2.5",
-            "latest_app_version": "1.2.3",
-            "latest_human_version": "1.2.3_1.2.5",
-            "last_update": "2025-03-06 08:26:26",
-            "name": "plex-auto-languages",
-            "recommended": false,
-            "title": "Plex Auto Languages",
-            "maintainers": [
-                {
-                    "name": "truenas",
-                    "url": "https://www.truenas.com/",
-                    "email": "dev@ixsystems.com"
-                }
-            ],
-            "tags": [
-                "plex",
-                "languages"
-            ],
-            "screenshots": [],
-            "sources": [
-                "https://github.com/RemiRigal/Plex-Auto-Languages",
-                "https://github.com/truenas/charts/tree/master/community/plex-auto-languages",
-                "https://hub.docker.com/r/remirigal/plex-auto-languages"
-            ],
-            "icon_url": "https://media.sys.truenas.net/apps/plex-auto-languages/icons/icon.svg"
         },
         "mineos": {
             "app_readme": "<h1>MineOS</h1>\n<p><a href=\"https://github.com/hexparrot/mineos-node\">MineOS</a> is a server front-end to ease managing Minecraft administrative tasks.</p>",
