@@ -6,8 +6,8 @@
         "location": "/catalog/community/zerotier/1.0.25",
         "last_update": "2024-11-08 17:11:51",
         "required_features": [
-            "normalize/ixVolume",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "1.14.2_1.0.25",
         "version": "1.0.25",

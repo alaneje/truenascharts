@@ -6,8 +6,8 @@
         "location": "/catalog/community/gitlab/1.0.0",
         "last_update": "2026-07-01 19:17:51",
         "required_features": [
-            "normalize/ixVolume",
             "definitions/certificate",
+            "normalize/ixVolume",
             "normalize/acl"
         ],
         "human_version": "latest_1.0.0",

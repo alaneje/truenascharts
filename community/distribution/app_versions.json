@@ -6,8 +6,8 @@
         "location": "/catalog/community/distribution/1.2.4",
         "last_update": "2024-01-22 14:14:24",
         "required_features": [
-            "normalize/ixVolume",
             "definitions/certificate",
+            "normalize/ixVolume",
             "normalize/acl"
         ],
         "human_version": "2.8.3_1.2.4",

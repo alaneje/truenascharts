@@ -4,11 +4,11 @@
         "supported": false,
         "healthy_error": null,
         "location": "/catalog/charts/pihole/2.0.15",
-        "last_update": "2026-07-07 10:27:48",
+        "last_update": "2026-07-07 09:27:48",
         "required_features": [
             "definitions/timezone",
-            "normalize/ixVolume",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "2026.07.2_2.0.15",
         "version": "2.0.15",
@@ -1512,8 +1512,8 @@
         "last_update": "2024-08-27 15:07:53",
         "required_features": [
             "definitions/timezone",
-            "normalize/ixVolume",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "2024.07.0_2.0.14",
         "version": "2.0.14",
