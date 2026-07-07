@@ -31,6 +31,17 @@ APPS = [
             "version_matcher": [r"^v\d+\.\d+\.\d+$", r"^\d+\.\d+\.\d+$"],
         },
     },
+    {
+        "name": "pihole",
+        "train": "charts",
+        "check_ver": {
+            "type": "dockerhub",
+            "package_owner": "pihole",
+            "package_name": "pihole",
+            "anchor_tag": "latest",
+            "version_matcher": [r"^\d+\.\d+\.\d+$"],
+        },
+    },
 ]
 
 # Repo root (TrueNASCharts/)
