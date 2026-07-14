@@ -892,11 +892,11 @@
             "icon_url": "https://media.sys.truenas.net/apps/actual-budget/icons/icon.png"
         },
         "qbittorrent": {
-            "app_readme": "<h1>qBittorrent</h1>\n<p>The <a href=\"https://www.qbittorrent.org/\">qBittorrent</a> project aims to provide an open-source software alternative to \u00b5Torrent.</p>",
+            "app_readme": "<h1>qBittorrent</h1>\n<p>The <a href=\"https://www.qbittorrent.org/\">qBittorrent</a> project aims to provide an open-source software alternative to µTorrent.</p>",
             "categories": [
                 "media"
             ],
-            "description": "The qBittorrent project aims to provide an open-source software alternative to \u00b5Torrent.",
+            "description": "The qBittorrent project aims to provide an open-source software alternative to µTorrent.",
             "healthy": true,
             "healthy_error": null,
             "home": "https://www.qbittorrent.org/",
@@ -1313,7 +1313,7 @@
             "icon_url": "https://media.sys.truenas.net/apps/drawio/icons/icon.png"
         },
         "clamav": {
-            "app_readme": "<h1>ClamAV</h1>\n<p><a href=\"https://www.clamav.net/\">ClamAV</a> - ClamAV\u00ae is an open-source antivirus engine for detecting trojans, viruses, malware &amp; other malicious threats.</p>\n<ul>\n<li>App runs as <code>root</code> user</li>\n</ul>",
+            "app_readme": "<h1>ClamAV</h1>\n<p><a href=\"https://www.clamav.net/\">ClamAV</a> - ClamAV® is an open-source antivirus engine for detecting trojans, viruses, malware &amp; other malicious threats.</p>\n<ul>\n<li>App runs as <code>root</code> user</li>\n</ul>",
             "categories": [
                 "security"
             ],
@@ -3922,10 +3922,10 @@
             "healthy_error": null,
             "home": "https://github.com/AdguardTeam/AdGuardHome",
             "location": "/catalog/community/adguard-home",
-            "latest_version": "1.0.57",
-            "latest_app_version": "0.107.77",
-            "latest_human_version": "0.107.77_1.0.57",
-            "last_update": "2026-07-01 11:47:29",
+            "latest_version": "1.0.58",
+            "latest_app_version": "0.107.78",
+            "latest_human_version": "0.107.78_1.0.58",
+            "last_update": "2026-07-14 04:20:57",
             "name": "adguard-home",
             "recommended": false,
             "title": "AdGuard Home",
