@@ -9,6 +9,8 @@ appVersion: 'latest'
 kubeVersion: '>=1.16.0-0'
 maintainers:
   - name: alaneaston
+    url: https://github.com/alaneje
+    email: info@alaneje.uk
 dependencies:
   - name: common
     repository: file://../../../common
