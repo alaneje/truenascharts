@@ -30,19 +30,16 @@ workload:
           probes:
             liveness:
               enabled: true
-              type: {{ $scheme }}
+              type: tcp
               port: 8111
-              path: /
             readiness:
               enabled: true
-              type: {{ $scheme }}
+              type: tcp
               port: 8111
-              path: /
             startup:
               enabled: true
-              type: {{ $scheme }}
+              type: tcp
               port: 8111
-              path: /
               spec:
                 failureThreshold: 60
                 periodSeconds: 10

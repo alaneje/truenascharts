@@ -35,19 +35,16 @@ workload:
           probes:
             liveness:
               enabled: true
-              type: {{ $scheme }}
+              type: tcp
               port: {{ .Values.jenkinsNetwork.webPort }}
-              path: /login
             readiness:
               enabled: true
-              type: {{ $scheme }}
+              type: tcp
               port: {{ .Values.jenkinsNetwork.webPort }}
-              path: /login
             startup:
               enabled: true
-              type: {{ $scheme }}
+              type: tcp
               port: {{ .Values.jenkinsNetwork.webPort }}
-              path: /login
               spec:
                 failureThreshold: 60
                 periodSeconds: 10
