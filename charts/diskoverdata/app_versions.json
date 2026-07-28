@@ -6,9 +6,9 @@
         "location": "/catalog/charts/diskoverdata/2.0.3",
         "last_update": "2024-06-26 14:46:50",
         "required_features": [
-            "normalize/acl",
             "definitions/timezone",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "2.0.1_2.0.3",
         "version": "2.0.3",
