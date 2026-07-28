@@ -6,8 +6,8 @@
         "location": "/catalog/community/drawio/1.2.61",
         "last_update": "2025-03-06 08:27:48",
         "required_features": [
-            "normalize/ixVolume",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "26.1.0_1.2.61",
         "version": "1.2.61",

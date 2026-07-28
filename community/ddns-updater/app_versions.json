@@ -6,8 +6,8 @@
         "location": "/catalog/community/ddns-updater/1.0.34",
         "last_update": "2026-07-01 08:51:14",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/ixVolume"
         ],
         "human_version": "v2.10.0_1.0.34",
         "version": "1.0.34",
