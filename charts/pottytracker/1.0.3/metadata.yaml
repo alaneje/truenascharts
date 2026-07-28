@@ -1,6 +1,6 @@
 runAsContext:
-  - userName: apps
-    groupName: apps
-    uid: 568
-    gid: 568
-    description: "Run as apps user"
+  - userName: nextjs
+    groupName: nodejs
+    uid: 1001
+    gid: 1001
+    description: "Run as nextjs user"
