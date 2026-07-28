@@ -24,12 +24,3 @@ resources:
   limits:
     cpu: 2000m
     memory: 2Gi
-
-securityContext:
-  container:
-    runAsNonRoot: true
-    readOnlyRootFilesystem: false
-    runAsUser: 1001
-    runAsGroup: 1001
-  pod:
-    fsGroup: 1001
