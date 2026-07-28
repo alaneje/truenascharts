@@ -1,6 +1,8 @@
 groups:
   - name: "Potty Tracker Settings"
     description: "Configure Potty Tracker"
+  - name: "Container Settings"
+    description: "Configure Docker Image Settings"
   - name: "Network Configuration"
     description: "Configure Network for Potty Tracker"
 
@@ -18,6 +20,23 @@ questions:
             type: string
             required: false
             default: ""
+
+  - variable: imageSelector
+    group: "Container Settings"
+    label: "Image Pull Secrets (For Private Repo)"
+    schema:
+      type: dict
+      attrs:
+        - variable: pullSecrets
+          label: "Image Pull Secrets"
+          description: "If your GitHub repo is private, provide the name of the Kubernetes secret created in TrueNAS for ghcr.io."
+          schema:
+            type: list
+            items:
+              - variable: secretName
+                label: "Secret Name"
+                schema:
+                  type: string
 
   - variable: service
     group: "Network Configuration"

@@ -14,7 +14,7 @@ dependencies:
     repository: file://../../../common
     version: 1.2.9
 home: https://github.com/alaneaston/testproject
-icon: https://raw.githubusercontent.com/alaneaston/testproject/main/public/icon.svg
+icon: https://raw.githubusercontent.com/truenas/charts/master/charts/ix-chart/icon.png
 sources:
   - https://github.com/alaneaston/testproject
 keywords:

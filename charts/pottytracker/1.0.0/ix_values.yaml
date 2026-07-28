@@ -3,6 +3,9 @@ image:
   repository: ghcr.io/alaneaston/pottytracker
   tag: 'latest'
 
+imageSelector:
+  pullSecrets: []
+
 service:
   main:
     ports:
