@@ -4,12 +4,12 @@
         "supported": false,
         "healthy_error": null,
         "location": "/catalog/community/teamcity/1.0.0",
-        "last_update": "2026-07-28 14:25:42",
+        "last_update": "2026-07-28 15:08:30",
         "required_features": [
+            "definitions/certificate",
             "normalize/acl",
             "normalize/ixVolume",
-            "definitions/timezone",
-            "definitions/certificate"
+            "definitions/timezone"
         ],
         "human_version": "latest_1.0.0",
         "version": "1.0.0",
