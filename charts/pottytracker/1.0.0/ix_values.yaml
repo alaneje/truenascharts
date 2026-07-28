@@ -1,0 +1,19 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/alaneaston/pottytracker
+  tag: 'latest'
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        targetPort: 3000
+
+env:
+  DATABASE_URL: ""
+
+resources:
+  limits:
+    cpu: 2000m
+    memory: 2Gi

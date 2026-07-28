@@ -1,0 +1,47 @@
+groups:
+  - name: "Potty Tracker Settings"
+    description: "Configure Potty Tracker"
+  - name: "Network Configuration"
+    description: "Configure Network for Potty Tracker"
+
+questions:
+  - variable: env
+    group: "Potty Tracker Settings"
+    label: "Environment Variables"
+    schema:
+      type: dict
+      attrs:
+        - variable: DATABASE_URL
+          label: "Postgres Database URL"
+          description: "Connection string for Postgres (e.g. postgresql://user:pass@host:5432/db). Leave blank to simulate."
+          schema:
+            type: string
+            required: false
+            default: ""
+
+  - variable: service
+    group: "Network Configuration"
+    label: "Service Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          schema:
+            type: dict
+            attrs:
+              - variable: ports
+                label: "Ports"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: main
+                      label: "Main Port"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Web Port"
+                            schema:
+                              type: int
+                              default: 3000
