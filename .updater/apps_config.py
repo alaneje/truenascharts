@@ -42,6 +42,17 @@ APPS = [
             "version_matcher": [r"^\d+\.\d+\.\d+$"],
         },
     },
+    {
+        "name": "pottytracker",
+        "train": "charts",
+        "check_ver": {
+            "type": "ghcr",
+            "package_owner": "alaneaston",
+            "package_name": "pottytracker",
+            "anchor_tag": "latest",
+            "version_matcher": [r"^v?\d+\.\d+\.\d+$", r"^latest$"],
+        },
+    },
 ]
 
 # Repo root (TrueNASCharts/)
