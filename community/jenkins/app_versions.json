@@ -6,8 +6,8 @@
         "location": "/catalog/community/jenkins/1.2.20",
         "last_update": "2026-07-28 15:08:30",
         "required_features": [
-            "definitions/timezone",
             "normalize/acl",
+            "definitions/timezone",
             "definitions/certificate",
             "normalize/ixVolume"
         ],
