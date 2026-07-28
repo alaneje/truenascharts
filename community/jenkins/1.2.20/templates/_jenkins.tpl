@@ -48,6 +48,10 @@ workload:
               type: {{ $scheme }}
               port: {{ .Values.jenkinsNetwork.webPort }}
               path: /login
+              spec:
+                failureThreshold: 60
+                periodSeconds: 10
+                timeoutSeconds: 5
       initContainers:
       {{- include "ix.v1.common.app.permissions" (dict "containerName" "01-permissions"
                                                         "UID" 1000
