@@ -1,0 +1,11 @@
+{{- include "ix.v1.common.loader.init" . -}}
+
+{{- if not (hasKey .Values "env") -}}
+  {{- $_ := set .Values "env" dict -}}
+{{- end -}}
+{{- if and .Values.potty_db.host .Values.potty_db.username .Values.potty_db.password .Values.potty_db.database -}}
+  {{- $dbUrl := printf "postgresql://%s:%s@%s:%v/%s?schema=public" .Values.potty_db.username .Values.potty_db.password .Values.potty_db.host .Values.potty_db.port .Values.potty_db.database -}}
+  {{- $_ := set .Values.env "DATABASE_URL" $dbUrl -}}
+{{- end -}}
+
+{{- include "ix.v1.common.loader.apply" . -}}

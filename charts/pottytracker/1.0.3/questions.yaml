@@ -1,0 +1,86 @@
+groups:
+  - name: "Potty Tracker Settings"
+    description: "Configure Potty Tracker"
+  - name: "Container Settings"
+    description: "Configure Docker Image Settings"
+  - name: "Network Configuration"
+    description: "Configure Network for Potty Tracker"
+
+questions:
+  - variable: potty_db
+    group: "Potty Tracker Settings"
+    label: "Postgres Database Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: host
+          label: "Database Host"
+          schema:
+            type: string
+            required: true
+        - variable: port
+          label: "Database Port"
+          schema:
+            type: int
+            required: true
+            default: 5432
+        - variable: username
+          label: "Database Username"
+          schema:
+            type: string
+            required: true
+        - variable: password
+          label: "Database Password"
+          schema:
+            type: string
+            required: true
+            private: true
+        - variable: database
+          label: "Database Name (Table)"
+          schema:
+            type: string
+            required: true
+
+  - variable: imageSelector
+    group: "Container Settings"
+    label: "Image Pull Secrets (For Private Repo)"
+    schema:
+      type: dict
+      attrs:
+        - variable: pullSecrets
+          label: "Image Pull Secrets"
+          description: "If your GitHub repo is private, provide the name of the Kubernetes secret created in TrueNAS for ghcr.io."
+          schema:
+            type: list
+            items:
+              - variable: secretName
+                label: "Secret Name"
+                schema:
+                  type: string
+
+  - variable: service
+    group: "Network Configuration"
+    label: "Service Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          schema:
+            type: dict
+            attrs:
+              - variable: ports
+                label: "Ports"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: main
+                      label: "Main Port"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Web Port"
+                            schema:
+                              type: int
+                              default: 3000
