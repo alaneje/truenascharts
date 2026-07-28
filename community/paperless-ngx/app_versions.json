@@ -6,9 +6,9 @@
         "location": "/catalog/community/paperless-ngx/1.2.61",
         "last_update": "2025-02-03 19:45:16",
         "required_features": [
+            "definitions/timezone",
             "normalize/acl",
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "normalize/ixVolume"
         ],
         "human_version": "2.14.7_1.2.61",
         "version": "1.2.61",
