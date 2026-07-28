@@ -4,7 +4,7 @@
         "supported": true,
         "healthy_error": null,
         "location": "/catalog/community/nginx-proxy-manager/1.0.38",
-        "last_update": "2026-07-28 17:34:14",
+        "last_update": "2026-07-28 17:38:44",
         "required_features": [
             "definitions/timezone",
             "normalize/ixVolume"
