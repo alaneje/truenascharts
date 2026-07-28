@@ -7,10 +7,10 @@
         "last_update": "2025-02-21 12:29:18",
         "required_features": [
             "definitions/certificate",
-            "normalize/acl",
-            "definitions/timezone",
             "definitions/nodeIP",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone",
+            "normalize/acl"
         ],
         "human_version": "24.04.12.4.1_2.0.37",
         "version": "2.0.37",

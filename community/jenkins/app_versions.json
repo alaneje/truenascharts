@@ -4,12 +4,12 @@
         "supported": false,
         "healthy_error": null,
         "location": "/catalog/community/jenkins/1.2.20",
-        "last_update": "2025-03-06 08:27:48",
+        "last_update": "2026-07-28 14:24:26",
         "required_features": [
-            "definitions/timezone",
-            "definitions/certificate",
+            "normalize/acl",
             "normalize/ixVolume",
-            "normalize/acl"
+            "definitions/timezone",
+            "definitions/certificate"
         ],
         "human_version": "2.492.2_1.2.20",
         "version": "1.2.20",
