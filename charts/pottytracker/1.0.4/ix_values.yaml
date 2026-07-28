@@ -1,0 +1,35 @@
+image:
+  pullPolicy: Always
+  repository: ghcr.io/alaneje/pottytracker
+  tag: 'latest'
+
+imageSelector:
+  pullSecrets: []
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        targetPort: 3000
+
+potty_db:
+  host: ""
+  port: 5432
+  username: ""
+  password: ""
+  database: ""
+
+resources:
+  limits:
+    cpu: 2000m
+    memory: 2Gi
+
+securityContext:
+  container:
+    runAsNonRoot: true
+    readOnlyRootFilesystem: false
+    runAsUser: 568
+    runAsGroup: 568
+  pod:
+    fsGroup: 568

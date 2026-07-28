@@ -1,0 +1,24 @@
+name: pottytracker
+description: A beautiful, simple application to track child potty training events.
+annotations:
+  title: Potty Tracker
+type: application
+version: 1.0.4
+apiVersion: v2
+appVersion: 'latest'
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: alaneje
+    url: https://github.com/alaneje
+    email: info@alaneje.uk
+dependencies:
+  - name: common
+    repository: file://../../../common
+    version: 1.2.9
+home: https://github.com/alaneje/testproject
+icon: https://raw.githubusercontent.com/alaneje/testproject/main/public/icon.svg
+sources:
+  - https://github.com/alaneje/testproject
+keywords:
+  - potty
+  - tracker
