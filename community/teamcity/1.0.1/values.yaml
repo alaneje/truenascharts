@@ -1,0 +1,40 @@
+image:
+  repository: jetbrains/teamcity-server
+  pullPolicy: IfNotPresent
+  tag: latest
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+
+teamcityConfig:
+  additionalEnvs: []
+teamcityNetwork:
+  webPort: 30036
+  https: false
+  certificateID:
+  hostNetwork: false
+teamcityStorage:
+  data:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: data
+  logs:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: logs
+  additionalStorages: []
+
+# Not user configurable
+teamcityConstants:
+  certsPath: /tmp/ix-certs
+  keystorePath: /data/teamcity_server/datadir/ix-keystore
+  crtName: ix.crt
+  keyName: ix.key
+  keystoreName: ix.jks
+
+notes:
+  custom: |
+    TeamCity will take a few minutes to start and initialize on its first run.
+    Access the web interface to configure the database and administrative user.

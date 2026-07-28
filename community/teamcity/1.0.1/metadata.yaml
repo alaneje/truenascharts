@@ -1,0 +1,8 @@
+runAsContext:
+  - userName: teamcity
+    groupName: teamcity
+    gid: 1000
+    uid: 1000
+    description: TeamCity runs as a non-root user.
+capabilities: []
+hostMounts: []
