@@ -6,8 +6,8 @@
         "location": "/catalog/community/teamcity/1.0.0",
         "last_update": "2026-07-28 15:08:30",
         "required_features": [
-            "definitions/certificate",
             "normalize/acl",
+            "definitions/certificate",
             "normalize/ixVolume",
             "definitions/timezone"
         ],

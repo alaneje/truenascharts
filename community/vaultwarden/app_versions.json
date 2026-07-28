@@ -6,8 +6,8 @@
         "location": "/catalog/community/vaultwarden/1.1.24",
         "last_update": "2025-02-10 11:35:38",
         "required_features": [
-            "definitions/certificate",
             "normalize/acl",
+            "definitions/certificate",
             "normalize/ixVolume",
             "definitions/timezone"
         ],
