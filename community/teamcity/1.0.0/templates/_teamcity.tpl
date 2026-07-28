@@ -43,6 +43,10 @@ workload:
               type: {{ $scheme }}
               port: 8111
               path: /
+              spec:
+                failureThreshold: 60
+                periodSeconds: 10
+                timeoutSeconds: 5
       initContainers:
       {{- include "ix.v1.common.app.permissions" (dict "containerName" "01-permissions"
                                                         "UID" 1000
