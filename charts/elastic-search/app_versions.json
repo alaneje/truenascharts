@@ -7,8 +7,8 @@
         "last_update": "2025-03-05 14:29:05",
         "required_features": [
             "definitions/certificate",
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "8.17.3_1.1.32",
         "version": "1.1.32",
