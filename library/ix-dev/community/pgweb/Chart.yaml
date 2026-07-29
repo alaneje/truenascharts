@@ -1,0 +1,26 @@
+name: pgweb
+description: pgweb is a web-based database explorer for PostgreSQL
+annotations:
+  title: pgweb
+type: application
+version: 1.0.0
+apiVersion: v2
+appVersion: '0.11.12'
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: truenas
+    url: https://www.truenas.com/
+    email: dev@ixsystems.com
+dependencies:
+  - name: common
+    repository: file://../../../common
+    version: 1.2.9
+home: https://sosedoff.github.io/pgweb/
+icon: https://raw.githubusercontent.com/sosedoff/pgweb/master/static/img/logo.png
+sources:
+  - https://hub.docker.com/r/sosedoff/pgweb
+  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/pgweb
+  - https://sosedoff.github.io/pgweb/
+keywords:
+  - database
+  - management

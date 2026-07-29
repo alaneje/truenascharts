@@ -1,0 +1,25 @@
+image:
+  repository: sosedoff/pgweb
+  pullPolicy: IfNotPresent
+  tag: '0.11.12'
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+
+pgwebConfig:
+  databaseUrl: ''
+  additionalEnvs: []
+
+pgwebNetwork:
+  webPort: 30058
+  certificateID:
+  hostNetwork: false
+
+pgwebStorage:
+  config:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: config
+  additionalStorages: []

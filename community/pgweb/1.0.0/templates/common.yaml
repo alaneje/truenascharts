@@ -1,0 +1,13 @@
+{{- include "ix.v1.common.loader.init" . -}}
+
+{{- include "pgweb.validation" $ -}}
+
+{{/* Merge the templates with Values */}}
+{{- $_ := mustMergeOverwrite .Values (include "pgweb.workload" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "pgweb.service" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "pgweb.persistence" $ | fromYaml) -}}
+
+{{/* Create the configmap for portal manually*/}}
+{{- include "pgweb.portal" $ -}}
+
+{{- include "ix.v1.common.loader.apply" . -}}

@@ -50,7 +50,17 @@ APPS = [
             "package_owner": "alaneje",
             "package_name": "pottytracker",
             "anchor_tag": "latest",
-            "version_matcher": [r"^v?\d+\.\d+\.\d+$", r"^latest$"],
+        },
+    },
+    {
+        "name": "pgweb",
+        "train": "community",
+        "check_ver": {
+            "type": "dockerhub",
+            "package_owner": "sosedoff",
+            "package_name": "pgweb",
+            "anchor_tag": "latest",
+            "version_matcher": [r"^\d+\.\d+\.\d+$", r"^v\d+\.\d+\.\d+$"],
         },
     },
 ]
