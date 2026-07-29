@@ -7,9 +7,9 @@
         "last_update": "2026-07-28 21:29:01",
         "required_features": [
             "definitions/certificate",
+            "normalize/ixVolume",
             "normalize/acl",
-            "definitions/timezone",
-            "normalize/ixVolume"
+            "definitions/timezone"
         ],
         "human_version": "latest_1.0.1",
         "version": "1.0.1",
@@ -1356,9 +1356,9 @@
         "last_update": "2026-07-28 21:29:01",
         "required_features": [
             "definitions/certificate",
+            "normalize/ixVolume",
             "normalize/acl",
-            "definitions/timezone",
-            "normalize/ixVolume"
+            "definitions/timezone"
         ],
         "human_version": "latest_1.0.0",
         "version": "1.0.0",

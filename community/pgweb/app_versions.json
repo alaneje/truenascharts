@@ -1,28 +1,27 @@
 {
-    "1.2.20": {
+    "1.0.0": {
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/catalog/community/jenkins/1.2.20",
-        "last_update": "2026-07-28 15:08:30",
+        "location": "/catalog/community/pgweb/1.0.0",
+        "last_update": "2026-07-29 15:29:57",
         "required_features": [
             "definitions/certificate",
             "normalize/ixVolume",
-            "normalize/acl",
-            "definitions/timezone"
+            "normalize/acl"
         ],
-        "human_version": "2.492.2_1.2.20",
-        "version": "1.2.20",
+        "human_version": "0.11.12_1.0.0",
+        "version": "1.0.0",
         "chart_metadata": {
-            "name": "jenkins",
-            "description": "Jenkins is a leading open source automation server,",
+            "name": "pgweb",
+            "description": "pgweb is a web-based database explorer for PostgreSQL",
             "annotations": {
-                "title": "Jenkins"
+                "title": "pgweb"
             },
             "type": "application",
-            "version": "1.2.20",
+            "version": "1.0.0",
             "apiVersion": "v2",
-            "appVersion": "2.492.2",
+            "appVersion": "0.11.12",
             "kubeVersion": ">=1.16.0-0",
             "maintainers": [
                 {
@@ -38,53 +37,53 @@
                     "version": "1.2.9"
                 }
             ],
-            "home": "https://www.jenkins.io/",
-            "icon": "https://media.sys.truenas.net/apps/jenkins/icons/icon.svg",
+            "home": "https://sosedoff.github.io/pgweb/",
+            "icon": "https://raw.githubusercontent.com/sosedoff/pgweb/master/static/img/logo.png",
             "sources": [
-                "https://hub.docker.com/r/jenkins/jenkins",
-                "https://github.com/truenas/charts/tree/master/community/jenkins",
-                "https://github.com/jenkinsci/jenkins",
-                "https://www.jenkins.io/"
+                "https://hub.docker.com/r/sosedoff/pgweb",
+                "https://github.com/truenas/charts/tree/master/library/ix-dev/community/pgweb",
+                "https://sosedoff.github.io/pgweb/"
             ],
             "keywords": [
-                "automation",
-                "ci/cd"
+                "database",
+                "management"
             ]
         },
         "app_metadata": {
             "runAsContext": [
                 {
-                    "userName": "jenkins",
-                    "groupName": "jenkins",
-                    "gid": 1000,
-                    "uid": 1000,
-                    "description": "Jenkins runs as a non-root user."
+                    "userName": "pgweb",
+                    "groupName": "pgweb",
+                    "gid": 5050,
+                    "uid": 5050,
+                    "description": "pgweb runs as a non-root user."
                 }
             ],
-            "capabilities": [],
+            "capabilities": [
+                {
+                    "name": "NET_BIND_SERVICE",
+                    "description": "pgweb requires this ability to bind to privileged ports."
+                }
+            ],
             "hostMounts": []
         },
         "schema": {
             "groups": [
                 {
-                    "name": "Jenkins Configuration",
-                    "description": "Configure Jenkins"
-                },
-                {
-                    "name": "User and Group Configuration",
-                    "description": "Configure User and Group for Jenkins"
+                    "name": "pgweb Configuration",
+                    "description": "Configure pgweb"
                 },
                 {
                     "name": "Network Configuration",
-                    "description": "Configure Network for Jenkins"
+                    "description": "Configure Network for pgweb"
                 },
                 {
                     "name": "Storage Configuration",
-                    "description": "Configure Storage for Jenkins"
+                    "description": "Configure Storage for pgweb"
                 },
                 {
                     "name": "Resources Configuration",
-                    "description": "Configure Resources for Jenkins"
+                    "description": "Configure Resources for pgweb"
                 }
             ],
             "portals": {
@@ -103,97 +102,25 @@
             },
             "questions": [
                 {
-                    "variable": "TZ",
-                    "group": "Jenkins Configuration",
-                    "label": "Timezone",
-                    "schema": {
-                        "type": "string",
-                        "default": "America/Los_Angeles",
-                        "required": true,
-                        "$ref": [
-                            "definitions/timezone"
-                        ],
-                        "enum": [
-                            {
-                                "value": "Asia/Damascus",
-                                "description": "'Asia/Damascus' timezone"
-                            },
-                            {
-                                "value": "Asia/Saigon",
-                                "description": "'Asia/Saigon' timezone"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "variable": "jenkinsConfig",
+                    "variable": "pgwebConfig",
                     "label": "",
-                    "group": "Jenkins Configuration",
+                    "group": "pgweb Configuration",
                     "schema": {
                         "type": "dict",
                         "attrs": [
                             {
-                                "variable": "jenkinsJavaOpts",
-                                "label": "Additional Jenkins Java Options",
-                                "description": "Configure additional jenkins java options for Jenkins.</br>\nSee https://www.jenkins.io/doc/book/managing/system-properties\n",
+                                "variable": "databaseUrl",
+                                "label": "Database URL",
+                                "description": "The PostgreSQL database connection URL.",
                                 "schema": {
-                                    "type": "list",
-                                    "default": [],
-                                    "items": [
-                                        {
-                                            "variable": "jenkinsJavaOpt",
-                                            "label": "Jenkins Java Option",
-                                            "schema": {
-                                                "type": "dict",
-                                                "attrs": [
-                                                    {
-                                                        "variable": "property",
-                                                        "label": "Property",
-                                                        "description": "The property to set, see https://www.jenkins.io/doc/book/managing/system-properties </br>\nThe prefix [-D] is automatically added.\n",
-                                                        "schema": {
-                                                            "type": "string",
-                                                            "required": true
-                                                        }
-                                                    },
-                                                    {
-                                                        "variable": "value",
-                                                        "description": "The value to set for the property.</br>\n",
-                                                        "label": "Value",
-                                                        "schema": {
-                                                            "type": "string",
-                                                            "required": true
-                                                        }
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                "variable": "jenkinsOpts",
-                                "label": "Additional Jenkins Options",
-                                "description": "Configure additional jenkins options for Jenkins. </br>\nsee https://www.jenkins.io/doc/book/installing/initial-settings\n",
-                                "schema": {
-                                    "type": "list",
-                                    "default": [],
-                                    "items": [
-                                        {
-                                            "variable": "jenkinsOption",
-                                            "label": "Jenkins Option",
-                                            "description": "The option to set, see https://www.jenkins.io/doc/book/installing/initial-settings </br>\nThe prefix [--] is automatically added.\n",
-                                            "schema": {
-                                                "type": "string",
-                                                "required": true
-                                            }
-                                        }
-                                    ]
+                                    "type": "string",
+                                    "default": ""
                                 }
                             },
                             {
                                 "variable": "additionalEnvs",
                                 "label": "Additional Environment Variables",
-                                "description": "Configure additional environment variables for Jenkins.",
+                                "description": "Configure additional environment variables for pgweb.",
                                 "schema": {
                                     "type": "list",
                                     "default": [],
@@ -230,7 +157,7 @@
                     }
                 },
                 {
-                    "variable": "jenkinsNetwork",
+                    "variable": "pgwebNetwork",
                     "label": "",
                     "group": "Network Configuration",
                     "schema": {
@@ -239,19 +166,28 @@
                             {
                                 "variable": "webPort",
                                 "label": "Web Port",
-                                "description": "The port for the Jenkins Web UI.",
+                                "description": "The port for the pgweb Web UI.",
                                 "schema": {
                                     "type": "int",
-                                    "default": 30036,
+                                    "default": 30058,
                                     "min": 9000,
                                     "max": 65535,
                                     "required": true
                                 }
                             },
                             {
+                                "variable": "hostNetwork",
+                                "label": "Host Network",
+                                "description": "Bind to the host network. It's recommended to keep this disabled.</br>\n",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": false
+                                }
+                            },
+                            {
                                 "variable": "certificateID",
                                 "label": "Certificate",
-                                "description": "The certificate to use for HTTPS.",
+                                "description": "The certificate to use for pgweb",
                                 "schema": {
                                     "type": "int",
                                     "null": true,
@@ -266,58 +202,21 @@
                                     ],
                                     "default": null
                                 }
-                            },
-                            {
-                                "variable": "agent",
-                                "label": "Enable Agent",
-                                "description": "Enable Agent Port for Jenkins.",
-                                "schema": {
-                                    "type": "boolean",
-                                    "default": false
-                                }
-                            },
-                            {
-                                "variable": "agentPort",
-                                "label": "Agent Port",
-                                "description": "The port for the Jenkins Agent.",
-                                "schema": {
-                                    "type": "int",
-                                    "show_if": [
-                                        [
-                                            "agent",
-                                            "=",
-                                            true
-                                        ]
-                                    ],
-                                    "default": 50000,
-                                    "min": 9000,
-                                    "max": 65535,
-                                    "required": true
-                                }
-                            },
-                            {
-                                "variable": "hostNetwork",
-                                "label": "Host Network",
-                                "description": "Bind to the host network. It's recommended to keep this disabled.</br>\n",
-                                "schema": {
-                                    "type": "boolean",
-                                    "default": false
-                                }
                             }
                         ]
                     }
                 },
                 {
-                    "variable": "jenkinsStorage",
+                    "variable": "pgwebStorage",
                     "label": "",
                     "group": "Storage Configuration",
                     "schema": {
                         "type": "dict",
                         "attrs": [
                             {
-                                "variable": "home",
-                                "label": "Jenkins Home Storage",
-                                "description": "The path to store Jenkins Home Directory.",
+                                "variable": "config",
+                                "label": "pgweb Config Storage",
+                                "description": "The path to store pgweb Configuration.",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
@@ -377,7 +276,7 @@
                                                             "required": true,
                                                             "immutable": true,
                                                             "hidden": true,
-                                                            "default": "home"
+                                                            "default": "config"
                                                         }
                                                     },
                                                     {
@@ -638,7 +537,7 @@
                             {
                                 "variable": "additionalStorages",
                                 "label": "Additional Storage",
-                                "description": "Additional storage for Jenkins.",
+                                "description": "Additional storage for pgweb.",
                                 "schema": {
                                     "type": "list",
                                     "default": [],
@@ -1079,7 +978,7 @@
                                         {
                                             "variable": "cpu",
                                             "label": "CPU",
-                                            "description": "CPU limit for Jenkins.",
+                                            "description": "CPU limit for pgweb.",
                                             "schema": {
                                                 "type": "string",
                                                 "max_length": 6,
@@ -1092,7 +991,7 @@
                                         {
                                             "variable": "memory",
                                             "label": "Memory",
-                                            "description": "Memory limit for Jenkins.",
+                                            "description": "Memory limit for pgweb.",
                                             "schema": {
                                                 "type": "string",
                                                 "max_length": 12,
@@ -1110,8 +1009,8 @@
                 }
             ]
         },
-        "app_readme": "<h1>Jenkins</h1>\n<p><a href=\"https://www.jenkins.io/\">Jenkins</a>. The leading open source automation server, Jenkins provides hundreds of\nplugins to support building, deploying and automating any project.</p>\n<blockquote>\n<p>When application is installed and on each startup, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>Jenkins</code> directories.\nAfterward, the <code>Jenkins</code> container will run as a <strong>non</strong>-root user (<code>1000</code>).\nAll mounted storage(s) will be <code>chown</code>ed only if the parent directory does not match the user and group (<code>1000</code>).</p>\n</blockquote>",
-        "detailed_readme": "<h1>Jenkins</h1>\n<p><a href=\"https://www.jenkins.io/\">Jenkins</a>. The leading open source automation server, Jenkins provides hundreds of\nplugins to support building, deploying and automating any project.</p>\n<blockquote>\n<p>When application is installed and on each startup, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>Jenkins</code> directories.\nAfterward, the <code>Jenkins</code> container will run as a <strong>non</strong>-root user (<code>1000</code>).\nAll mounted storage(s) will be <code>chown</code>ed only if the parent directory does not match the user and group (<code>1000</code>).</p>\n</blockquote>",
+        "app_readme": "<h1>pgweb</h1>\n<p><a href=\"https://sosedoff.github.io/pgweb/\">pgweb</a> is a web-based database explorer for PostgreSQL.</p>",
+        "detailed_readme": "<h1>pgweb</h1>\n<p><a href=\"https://sosedoff.github.io/pgweb/\">pgweb</a> is a web-based database explorer for PostgreSQL.</p>",
         "changelog": null
     }
 }
