@@ -1,0 +1,10 @@
+runAsContext:
+  - userName: pgweb
+    groupName: pgweb
+    gid: 5050
+    uid: 5050
+    description: pgweb runs as a non-root user.
+capabilities:
+  - name: NET_BIND_SERVICE
+    description: pgweb requires this ability to bind to privileged ports.
+hostMounts: []
