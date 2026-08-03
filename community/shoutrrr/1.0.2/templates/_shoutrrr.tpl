@@ -16,13 +16,19 @@ workload:
             runAsGroup: 0
             runAsNonRoot: false
             readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: true
             capabilities:
               add:
+                - NET_BIND_SERVICE
                 - CHOWN
                 - DAC_OVERRIDE
                 - FOWNER
                 - SETUID
                 - SETGID
+                - SETPCAP
+                - SETFCAP
+                - KILL
+                - SYS_PTRACE
           envFrom:
             - secretRef:
                 name: shoutrrr-creds

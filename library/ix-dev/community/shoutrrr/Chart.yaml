@@ -3,7 +3,7 @@ description: Shoutrrr is an open-source social media scheduling tool (alternativ
 annotations:
   title: Shoutrrr
 type: application
-version: 1.0.1
+version: 1.0.2
 apiVersion: v2
 appVersion: 1.0.0
 kubeVersion: '>=1.16.0-0'
