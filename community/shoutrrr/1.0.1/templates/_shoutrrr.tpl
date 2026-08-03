@@ -19,6 +19,7 @@ workload:
             capabilities:
               add:
                 - CHOWN
+                - DAC_OVERRIDE
                 - FOWNER
                 - SETUID
                 - SETGID
@@ -54,6 +55,7 @@ workload:
       {{- include "ix.v1.common.app.permissions" (dict "containerName" "01-permissions"
                                                         "UID" 9999
                                                         "GID" 9999
-                                                        "mode" "check"
+                                                        "mode" "always"
+                                                        "chmod" "775"
                                                         "type" "install") | nindent 8 }}
 {{- end -}}

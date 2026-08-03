@@ -1,16 +1,16 @@
 {
-    "1.0.0": {
+    "1.0.1": {
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/catalog/community/shoutrrr/1.0.0",
-        "last_update": "2026-08-03 20:34:00",
+        "location": "/catalog/community/shoutrrr/1.0.1",
+        "last_update": "2026-08-03 21:01:00",
         "required_features": [
             "normalize/ixVolume",
             "normalize/acl"
         ],
-        "human_version": "1.0.0_1.0.0",
-        "version": "1.0.0",
+        "human_version": "1.0.0_1.0.1",
+        "version": "1.0.1",
         "chart_metadata": {
             "name": "shoutrrr",
             "description": "Shoutrrr is an open-source social media scheduling tool (alternative to Buffer and Hootsuite).",
@@ -18,7 +18,7 @@
                 "title": "Shoutrrr"
             },
             "type": "application",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "apiVersion": "v2",
             "appVersion": "1.0.0",
             "kubeVersion": ">=1.16.0-0",
@@ -63,6 +63,10 @@
                 {
                     "name": "CHOWN",
                     "description": "Shoutrrr is able to chown files."
+                },
+                {
+                    "name": "DAC_OVERRIDE",
+                    "description": "Shoutrrr is able to bypass permission checks."
                 },
                 {
                     "name": "FOWNER",

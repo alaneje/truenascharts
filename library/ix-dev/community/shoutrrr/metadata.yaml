@@ -7,6 +7,8 @@ runAsContext:
 capabilities:
   - name: CHOWN
     description: Shoutrrr is able to chown files.
+  - name: DAC_OVERRIDE
+    description: Shoutrrr is able to bypass permission checks.
   - name: FOWNER
     description: Shoutrrr is able to adjust file permissions.
   - name: SETUID

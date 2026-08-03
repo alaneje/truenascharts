@@ -24,6 +24,13 @@ configmap:
       APP_URL: {{ (.Values.shoutrrrConfig | default dict).appUrl | default "http://localhost:31014" | trimSuffix "/" | quote }}
       APP_ENV: production
       PORT: "8080"
+      OCTANE_SERVER: "frankenphp"
+      AUTORUN_LARAVEL_STORAGE_LINK: "false"
+      DB_CONNECTION: "sqlite"
+      DB_DATABASE: "/var/www/html/database/sqlite/database.sqlite"
+      CACHE_STORE: "database"
+      QUEUE_CONNECTION: "database"
+      SESSION_DRIVER: "database"
       SESSION_SECURE_COOKIE: {{ (.Values.shoutrrrConfig | default dict).sessionSecureCookie | default false | quote }}
       TRUSTED_PROXIES: {{ (.Values.shoutrrrConfig | default dict).trustedProxies | default "*" | quote }}
       FILESYSTEM_DISK: {{ (.Values.shoutrrrConfig | default dict).filesystemDisk | default "public" | quote }}
