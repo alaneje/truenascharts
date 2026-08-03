@@ -1,0 +1,16 @@
+runAsContext:
+  - userName: root
+    groupName: root
+    gid: 0
+    uid: 0
+    description: Shoutrrr runs as root and drops privileges to www-data
+capabilities:
+  - name: CHOWN
+    description: Shoutrrr is able to chown files.
+  - name: FOWNER
+    description: Shoutrrr is able to adjust file permissions.
+  - name: SETUID
+    description: Shoutrrr is able to switch user ID.
+  - name: SETGID
+    description: Shoutrrr is able to switch group ID.
+hostMounts: []

@@ -1,0 +1,117 @@
+{
+    "1.0.0": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/catalog/community/shoutrrr/1.0.0",
+        "last_update": "2026-08-03 20:30:00",
+        "required_features": [
+            "normalize/ixVolume",
+            "normalize/acl"
+        ],
+        "human_version": "1.0.0_1.0.0",
+        "version": "1.0.0",
+        "chart_metadata": {
+            "name": "shoutrrr",
+            "description": "Shoutrrr is an open-source social media scheduling tool (alternative to Buffer and Hootsuite).",
+            "annotations": {
+                "title": "Shoutrrr"
+            },
+            "type": "application",
+            "version": "1.0.0",
+            "apiVersion": "v2",
+            "appVersion": "1.0.0",
+            "kubeVersion": ">=1.16.0-0",
+            "maintainers": [
+                {
+                    "name": "truenas",
+                    "url": "https://www.truenas.com/",
+                    "email": "dev@ixsystems.com"
+                }
+            ],
+            "dependencies": [
+                {
+                    "name": "common",
+                    "repository": "file://../../../common",
+                    "version": "1.2.9"
+                }
+            ],
+            "home": "https://shoutrrr.com/",
+            "icon": "https://raw.githubusercontent.com/coollabsio/shoutrrr/main/public/logo.png",
+            "sources": [
+                "https://github.com/coollabsio/shoutrrr",
+                "https://ghcr.io/coollabsio/shoutrrr"
+            ],
+            "keywords": [
+                "social",
+                "media",
+                "marketing",
+                "scheduling"
+            ]
+        },
+        "app_metadata": {
+            "runAsContext": [
+                {
+                    "userName": "root",
+                    "groupName": "root",
+                    "gid": 0,
+                    "uid": 0,
+                    "description": "Shoutrrr runs as root and drops privileges to www-data"
+                }
+            ],
+            "capabilities": [
+                {
+                    "name": "CHOWN",
+                    "description": "Shoutrrr is able to chown files."
+                },
+                {
+                    "name": "FOWNER",
+                    "description": "Shoutrrr is able to adjust file permissions."
+                },
+                {
+                    "name": "SETUID",
+                    "description": "Shoutrrr is able to switch user ID."
+                },
+                {
+                    "name": "SETGID",
+                    "description": "Shoutrrr is able to switch group ID."
+                }
+            ],
+            "hostMounts": []
+        },
+        "schema": {
+            "groups": [
+                {
+                    "name": "Shoutrrr Configuration",
+                    "description": "Configure Shoutrrr"
+                },
+                {
+                    "name": "Network Configuration",
+                    "description": "Configure Network for Shoutrrr"
+                },
+                {
+                    "name": "Storage Configuration",
+                    "description": "Configure Storage for Shoutrrr"
+                },
+                {
+                    "name": "Resources Configuration",
+                    "description": "Configure Resources for Shoutrrr"
+                }
+            ],
+            "portals": {
+                "web_portal": {
+                    "protocols": [
+                        "$kubernetes-resource_configmap_portal_protocol"
+                    ],
+                    "host": [
+                        "$kubernetes-resource_configmap_portal_host"
+                    ],
+                    "ports": [
+                        "$kubernetes-resource_configmap_portal_port"
+                    ],
+                    "path": "$kubernetes-resource_configmap_portal_path"
+                }
+            }
+        }
+    }
+}

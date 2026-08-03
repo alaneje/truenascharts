@@ -63,6 +63,16 @@ APPS = [
             "version_matcher": [r"^\d+\.\d+\.\d+$", r"^v\d+\.\d+\.\d+$"],
         },
     },
+    {
+        "name": "shoutrrr",
+        "train": "community",
+        "check_ver": {
+            "type": "ghcr",
+            "package_owner": "coollabsio",
+            "package_name": "shoutrrr",
+            "anchor_tag": "latest",
+        },
+    },
 ]
 
 # Repo root (TrueNASCharts/)

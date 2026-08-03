@@ -1,0 +1,59 @@
+{{- define "shoutrrr.workload" -}}
+workload:
+  shoutrrr:
+    enabled: true
+    primary: true
+    type: Deployment
+    podSpec:
+      hostNetwork: {{ (.Values.shoutrrrNetwork | default dict).hostNetwork | default false }}
+      containers:
+        shoutrrr:
+          enabled: true
+          primary: true
+          imageSelector: image
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+            capabilities:
+              add:
+                - CHOWN
+                - FOWNER
+                - SETUID
+                - SETGID
+          envFrom:
+            - secretRef:
+                name: shoutrrr-creds
+            - configMapRef:
+                name: shoutrrr-config
+          {{ with (.Values.shoutrrrConfig | default dict).additionalEnvs }}
+          envList:
+            {{ range $env := . }}
+            - name: {{ $env.name }}
+              value: {{ $env.value | quote }}
+            {{ end }}
+          {{ end }}
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: 8080
+              path: /up
+            readiness:
+              enabled: true
+              type: http
+              port: 8080
+              path: /up
+            startup:
+              enabled: true
+              type: http
+              port: 8080
+              path: /up
+      initContainers:
+      {{- include "ix.v1.common.app.permissions" (dict "containerName" "01-permissions"
+                                                        "UID" 9999
+                                                        "GID" 9999
+                                                        "mode" "check"
+                                                        "type" "install") | nindent 8 }}
+{{- end -}}
