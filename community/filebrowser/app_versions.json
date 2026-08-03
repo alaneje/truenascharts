@@ -6,8 +6,8 @@
         "location": "/catalog/community/filebrowser/1.2.13",
         "last_update": "2025-02-03 19:45:16",
         "required_features": [
-            "normalize/acl",
             "definitions/certificate",
+            "normalize/acl",
             "normalize/ixVolume"
         ],
         "human_version": "2.32.0_1.2.13",
