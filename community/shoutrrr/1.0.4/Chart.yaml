@@ -1,0 +1,28 @@
+name: shoutrrr
+description: Shoutrrr is an open-source social media scheduling tool (alternative
+  to Buffer and Hootsuite).
+annotations:
+  title: Shoutrrr
+type: application
+version: 1.0.4
+apiVersion: v2
+appVersion: 1.4.0
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- name: truenas
+  url: https://www.truenas.com/
+  email: dev@ixsystems.com
+dependencies:
+- name: common
+  repository: file://../../../common
+  version: 1.2.9
+home: https://shoutrrr.com/
+icon: https://raw.githubusercontent.com/coollabsio/shoutrrr/main/public/logo.png
+sources:
+- https://github.com/coollabsio/shoutrrr
+- https://ghcr.io/coollabsio/shoutrrr
+keywords:
+- social
+- media
+- marketing
+- scheduling

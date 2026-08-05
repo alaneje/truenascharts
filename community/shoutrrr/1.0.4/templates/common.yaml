@@ -1,0 +1,12 @@
+{{- include "ix.v1.common.loader.init" . -}}
+
+{{/* Merge the templates with Values */}}
+{{- $_ := mustMergeOverwrite .Values (include "shoutrrr.configuration" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "shoutrrr.persistence" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "shoutrrr.service" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "shoutrrr.workload" $ | fromYaml) -}}
+
+{{/* Create the configmap for portal manually*/}}
+{{- include "shoutrrr.portal" $ -}}
+
+{{- include "ix.v1.common.loader.apply" . -}}

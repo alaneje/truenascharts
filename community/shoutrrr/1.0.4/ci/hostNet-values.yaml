@@ -1,0 +1,9 @@
+shoutrrrNetwork:
+  webPort: 30000
+  hostNetwork: true
+
+shoutrrrStorage:
+  storage:
+    type: pvc
+  database:
+    type: pvc
