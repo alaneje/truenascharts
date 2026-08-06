@@ -1,0 +1,29 @@
+image:
+  repository: ghcr.io/coollabsio/shoutrrr
+  pullPolicy: IfNotPresent
+  tag: 1.4.1
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+shoutrrrConfig:
+  appName: Shoutrrr
+  appUrl: http://localhost:31014
+  appKey: ''
+  sessionSecureCookie: false
+  trustedProxies: '*'
+  filesystemDisk: public
+  additionalEnvs: []
+shoutrrrNetwork:
+  webPort: 31014
+  hostNetwork: false
+shoutrrrStorage:
+  storage:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: storage
+  database:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: database
+  additionalStorages: []
