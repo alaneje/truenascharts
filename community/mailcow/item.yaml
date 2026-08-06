@@ -1,0 +1,9 @@
+icon_url: https://raw.githubusercontent.com/mailcow/mailcow-dockerized/master/data/web/img/cow_mailcow.svg
+categories:
+  - mail
+  - email
+  - groupware
+  - mailserver
+  - sogo
+  - dovecot
+  - postfix

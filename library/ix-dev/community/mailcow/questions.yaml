@@ -1,0 +1,486 @@
+groups:
+  - name: Mailcow Configuration
+    description: Configure Mailcow Settings
+  - name: Network Configuration
+    description: Configure Network for Mailcow
+  - name: Storage Configuration
+    description: Configure Storage for Mailcow
+  - name: Resources Configuration
+    description: Configure Resources for Mailcow
+
+portals:
+  web_portal:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+    path: "$kubernetes-resource_configmap_portal_path"
+
+questions:
+
+  - variable: mailcowConfig
+    label: "Mailcow Settings"
+    group: Mailcow Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: hostname
+          label: Mail Server Hostname (FQDN)
+          description: "Fully Qualified Domain Name of your mail server (e.g. mail.example.com)."
+          schema:
+            type: string
+            default: "mail.example.com"
+            required: true
+        - variable: timezone
+          label: Timezone
+          description: "Timezone for Mailcow services (e.g. UTC, Europe/London, America/New_York)."
+          schema:
+            type: string
+            default: "UTC"
+            required: true
+        - variable: skipClamd
+          label: Disable ClamAV Antivirus
+          description: "Disable ClamAV to significantly reduce RAM usage (recommended if system has less than 6GB RAM)."
+          schema:
+            type: boolean
+            default: false
+        - variable: skipSogo
+          label: Disable SOGo Webmail
+          description: "Disable SOGo webmail/groupware if using external webmail."
+          schema:
+            type: boolean
+            default: false
+        - variable: additionalEnvs
+          label: Additional Environment Variables
+          description: Additional environment variables for Mailcow.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: envEntry
+                label: Environment Variable
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                        required: true
+                    - variable: value
+                      label: Value
+                      schema:
+                        type: string
+                        required: true
+
+  - variable: mailcowNetwork
+    label: "Network Configuration"
+    group: Network Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: webPort
+          label: HTTP Web Port
+          schema:
+            type: int
+            default: 30080
+            min: 1
+            max: 65535
+            required: true
+        - variable: webHttpsPort
+          label: HTTPS Web Port
+          schema:
+            type: int
+            default: 30443
+            min: 1
+            max: 65535
+            required: true
+        - variable: smtpPort
+          label: SMTP Port (Plain/STARTTLS)
+          schema:
+            type: int
+            default: 25
+            min: 1
+            max: 65535
+            required: true
+        - variable: smtpsPort
+          label: SMTPS Port (SSL/TLS)
+          schema:
+            type: int
+            default: 465
+            min: 1
+            max: 65535
+            required: true
+        - variable: submissionPort
+          label: Submission Port (STARTTLS)
+          schema:
+            type: int
+            default: 587
+            min: 1
+            max: 65535
+            required: true
+        - variable: imapPort
+          label: IMAP Port (Plain/STARTTLS)
+          schema:
+            type: int
+            default: 143
+            min: 1
+            max: 65535
+            required: true
+        - variable: imapsPort
+          label: IMAPS Port (SSL/TLS)
+          schema:
+            type: int
+            default: 993
+            min: 1
+            max: 65535
+            required: true
+        - variable: pop3Port
+          label: POP3 Port (Plain/STARTTLS)
+          schema:
+            type: int
+            default: 110
+            min: 1
+            max: 65535
+            required: true
+        - variable: pop3sPort
+          label: POP3S Port (SSL/TLS)
+          schema:
+            type: int
+            default: 995
+            min: 1
+            max: 65535
+            required: true
+        - variable: sievePort
+          label: ManageSieve Port
+          schema:
+            type: int
+            default: 4190
+            min: 1
+            max: 65535
+            required: true
+
+  - variable: mailcowStorage
+    label: "Storage Configuration"
+    group: Storage Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: vmail
+          label: Vmail Storage (Mailboxes)
+          description: Storage for user mailboxes and message data.
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: type
+                label: Type
+                schema:
+                  type: string
+                  required: true
+                  default: "ixVolume"
+                  enum:
+                    - value: "ixVolume"
+                      description: "ixVolume (Dataset created automatically by the system)"
+                    - value: "hostPath"
+                      description: "Host Path (Path that already exists on the system)"
+              - variable: ixVolumeConfig
+                label: ixVolume Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        required: true
+                        default: "vmail"
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      schema:
+                        type: hostpath
+                        required: true
+
+        - variable: crypt
+          label: Crypt Storage
+          description: Storage for encryption keys and certificates.
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: type
+                label: Type
+                schema:
+                  type: string
+                  required: true
+                  default: "ixVolume"
+                  enum:
+                    - value: "ixVolume"
+                      description: "ixVolume (Dataset created automatically by the system)"
+                    - value: "hostPath"
+                      description: "Host Path (Path that already exists on the system)"
+              - variable: ixVolumeConfig
+                label: ixVolume Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        required: true
+                        default: "crypt"
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      schema:
+                        type: hostpath
+                        required: true
+
+        - variable: redisData
+          label: Redis Storage
+          description: Storage for Redis database.
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: type
+                label: Type
+                schema:
+                  type: string
+                  required: true
+                  default: "ixVolume"
+                  enum:
+                    - value: "ixVolume"
+                      description: "ixVolume (Dataset created automatically by the system)"
+                    - value: "hostPath"
+                      description: "Host Path (Path that already exists on the system)"
+              - variable: ixVolumeConfig
+                label: ixVolume Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        required: true
+                        default: "redisData"
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      schema:
+                        type: hostpath
+                        required: true
+
+        - variable: rspamdData
+          label: Rspamd Storage
+          description: Storage for Rspamd training and stats.
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: type
+                label: Type
+                schema:
+                  type: string
+                  required: true
+                  default: "ixVolume"
+                  enum:
+                    - value: "ixVolume"
+                      description: "ixVolume (Dataset created automatically by the system)"
+                    - value: "hostPath"
+                      description: "Host Path (Path that already exists on the system)"
+              - variable: ixVolumeConfig
+                label: ixVolume Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        required: true
+                        default: "rspamdData"
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      schema:
+                        type: hostpath
+                        required: true
+
+        - variable: mariadbData
+          label: MariaDB Database Storage
+          description: Storage for Mailcow SQL database.
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: type
+                label: Type
+                schema:
+                  type: string
+                  required: true
+                  default: "ixVolume"
+                  enum:
+                    - value: "ixVolume"
+                      description: "ixVolume (Dataset created automatically by the system)"
+                    - value: "hostPath"
+                      description: "Host Path (Path that already exists on the system)"
+              - variable: ixVolumeConfig
+                label: ixVolume Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        required: true
+                        default: "mariadbData"
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      schema:
+                        type: hostpath
+                        required: true
+
+        - variable: mariadbBackup
+          label: MariaDB Backup Storage
+          description: Storage for automated database backups.
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: type
+                label: Type
+                schema:
+                  type: string
+                  required: true
+                  default: "ixVolume"
+                  enum:
+                    - value: "ixVolume"
+                      description: "ixVolume (Dataset created automatically by the system)"
+                    - value: "hostPath"
+                      description: "Host Path (Path that already exists on the system)"
+              - variable: ixVolumeConfig
+                label: ixVolume Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        required: true
+                        default: "mariadbBackup"
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      schema:
+                        type: hostpath
+                        required: true
+
+        - variable: additionalStorages
+          label: Additional Storage
+          description: Additional storage mounts for Mailcow.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: storageEntry
+                label: Storage Entry
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: type
+                      label: Type
+                      schema:
+                        type: string
+                        required: true
+                        default: "ixVolume"
+                        enum:
+                          - value: "ixVolume"
+                            description: "ixVolume"
+                          - value: "hostPath"
+                            description: "Host Path"
+                    - variable: mountPath
+                      label: Mount Path
+                      schema:
+                        type: path
+                        required: true
+
+  - variable: resources
+    label: "Resources Configuration"
+    group: Resources Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: limits
+          label: Resource Limits
+          schema:
+            type: dict
+            attrs:
+              - variable: cpu
+                label: CPU Limit
+                schema:
+                  type: string
+                  default: "4000m"
+                  required: true
+              - variable: memory
+                label: Memory Limit
+                schema:
+                  type: string
+                  default: "8Gi"
+                  required: true

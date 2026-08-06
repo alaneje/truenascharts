@@ -1,0 +1,28 @@
+mailcowNetwork:
+  webPort: 30080
+  webHttpsPort: 30443
+  smtpPort: 25
+  smtpsPort: 465
+  submissionPort: 587
+  imapPort: 143
+  imapsPort: 993
+  pop3Port: 110
+  pop3sPort: 995
+  sievePort: 4190
+
+mailcowStorage:
+  vmail:
+    type: pvc
+  crypt:
+    type: pvc
+  redisData:
+    type: pvc
+  rspamdData:
+    type: pvc
+  mariadbData:
+    type: pvc
+  mariadbBackup:
+    type: emptyDir
+    emptyDirConfig:
+      medium: ""
+      size: ""

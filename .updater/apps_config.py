@@ -73,6 +73,16 @@ APPS = [
             "anchor_tag": "latest",
         },
     },
+    {
+        "name": "mailcow",
+        "train": "community",
+        "check_ver": {
+            "type": "ghcr",
+            "package_owner": "mailcow",
+            "package_name": "dovecot",
+            "anchor_tag": "latest",
+        },
+    },
 ]
 
 # Repo root (TrueNASCharts/)

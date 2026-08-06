@@ -1,0 +1,93 @@
+image:
+  repository: ghcr.io/mailcow/dovecot
+  pullPolicy: IfNotPresent
+  tag: '2.35'
+
+mailcowImages:
+  postfix:
+    repository: ghcr.io/mailcow/postfix
+    pullPolicy: IfNotPresent
+    tag: '3.10.12'
+  sogo:
+    repository: ghcr.io/mailcow/sogo
+    pullPolicy: IfNotPresent
+    tag: '5.12.9-1'
+  phpfpm:
+    repository: ghcr.io/mailcow/phpfpm
+    pullPolicy: IfNotPresent
+    tag: '8.4.23'
+  rspamd:
+    repository: ghcr.io/mailcow/rspamd
+    pullPolicy: IfNotPresent
+    tag: '4.1.4-1'
+  clamd:
+    repository: ghcr.io/mailcow/clamd
+    pullPolicy: IfNotPresent
+    tag: '1.71'
+  watchdog:
+    repository: ghcr.io/mailcow/watchdog
+    pullPolicy: IfNotPresent
+    tag: '2.11'
+  acme:
+    repository: ghcr.io/mailcow/acme
+    pullPolicy: IfNotPresent
+    tag: '1.98'
+  unbound:
+    repository: ghcr.io/mailcow/unbound
+    pullPolicy: IfNotPresent
+    tag: '1.25.1-1'
+  netfilter:
+    repository: ghcr.io/mailcow/netfilter
+    pullPolicy: IfNotPresent
+    tag: '1.64'
+
+mailcowConfig:
+  hostname: 'mail.example.com'
+  timezone: 'UTC'
+  skipClamd: false
+  skipSogo: false
+  additionalEnvs: []
+
+mailcowNetwork:
+  webPort: 30080
+  webHttpsPort: 30443
+  smtpPort: 25
+  smtpsPort: 465
+  submissionPort: 587
+  imapPort: 143
+  imapsPort: 993
+  pop3Port: 110
+  pop3sPort: 995
+  sievePort: 4190
+
+mailcowStorage:
+  vmail:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: vmail
+  crypt:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: crypt
+  redisData:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: redisData
+  rspamdData:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: rspamdData
+  mariadbData:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: mariadbData
+  mariadbBackup:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: mariadbBackup
+  additionalStorages: []
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
