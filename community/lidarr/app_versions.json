@@ -6,8 +6,8 @@
         "location": "/catalog/community/lidarr/1.2.31",
         "last_update": "2024-08-26 11:49:44",
         "required_features": [
-            "normalize/ixVolume",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "2.5.2.4316_1.2.31",
         "version": "1.2.31",
