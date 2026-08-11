@@ -6,8 +6,8 @@
         "location": "/catalog/community/nginx-proxy-manager/1.0.38",
         "last_update": "2026-07-28 17:38:44",
         "required_features": [
-            "definitions/timezone",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone"
         ],
         "human_version": "2.12.3_1.0.38",
         "version": "1.0.38",
@@ -469,8 +469,8 @@
         "location": "/catalog/community/nginx-proxy-manager/1.0.37",
         "last_update": "2026-07-28 16:39:26",
         "required_features": [
-            "definitions/timezone",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone"
         ],
         "human_version": "2.12.3_1.0.37",
         "version": "1.0.37",
@@ -932,8 +932,8 @@
         "location": "/catalog/community/nginx-proxy-manager/1.0.36",
         "last_update": "2025-02-10 11:35:38",
         "required_features": [
-            "definitions/timezone",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone"
         ],
         "human_version": "2.12.3_1.0.36",
         "version": "1.0.36",

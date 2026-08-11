@@ -6,8 +6,8 @@
         "location": "/catalog/community/mineos/1.0.20",
         "last_update": "2024-01-22 14:14:24",
         "required_features": [
-            "definitions/certificate",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/certificate"
         ],
         "human_version": "latest_1.0.20",
         "version": "1.0.20",
