@@ -74,16 +74,6 @@ APPS = [
         },
     },
     {
-        "name": "mailcow",
-        "train": "community",
-        "check_ver": {
-            "type": "ghcr",
-            "package_owner": "mailcow",
-            "package_name": "dovecot",
-            "anchor_tag": "latest",
-        },
-    },
-    {
         "name": "frappe-hrms",
         "train": "community",
         "check_ver": {
