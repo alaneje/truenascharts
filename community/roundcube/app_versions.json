@@ -6,8 +6,8 @@
         "location": "/catalog/community/roundcube/1.0.7",
         "last_update": "2025-02-18 12:27:19",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "1.6.10_1.0.7",
         "version": "1.0.7",
