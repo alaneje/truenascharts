@@ -6,9 +6,9 @@
         "location": "/catalog/community/pgweb/1.0.1",
         "last_update": "2026-07-30 04:25:46",
         "required_features": [
+            "normalize/ixVolume",
             "normalize/acl",
-            "definitions/certificate",
-            "normalize/ixVolume"
+            "definitions/certificate"
         ],
         "human_version": "0.17.0_1.0.1",
         "version": "1.0.1",
@@ -1020,9 +1020,9 @@
         "location": "/catalog/community/pgweb/1.0.0",
         "last_update": "2026-07-29 15:29:57",
         "required_features": [
+            "normalize/ixVolume",
             "normalize/acl",
-            "definitions/certificate",
-            "normalize/ixVolume"
+            "definitions/certificate"
         ],
         "human_version": "0.11.12_1.0.0",
         "version": "1.0.0",
