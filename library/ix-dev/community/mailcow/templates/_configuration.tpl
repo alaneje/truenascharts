@@ -23,30 +23,30 @@ secret:
   mariadb-creds:
     enabled: true
     data:
-      MARIADB_USER: {{ $dbUser }}
-      MARIADB_DATABASE: {{ $dbName }}
-      MARIADB_PASSWORD: {{ $dbPass }}
-      MARIADB_ROOT_PASSWORD: {{ $dbRootPass }}
-      MARIADB_HOST: {{ $dbHost }}
+      MARIADB_USER: {{ $dbUser | quote }}
+      MARIADB_DATABASE: {{ $dbName | quote }}
+      MARIADB_PASSWORD: {{ $dbPass | quote }}
+      MARIADB_ROOT_PASSWORD: {{ $dbRootPass | quote }}
+      MARIADB_HOST: {{ $dbHost | quote }}
 
   redis-creds:
     enabled: true
     data:
-      REDIS_PASSWORD: {{ $redisPass }}
-      REDIS_HOST: {{ $redisHost }}
-      REDIS_PORT_NUMBER: 6379
+      REDIS_PASSWORD: {{ $redisPass | quote }}
+      REDIS_HOST: {{ $redisHost | quote }}
+      REDIS_PORT_NUMBER: "6379"
 
   mailcow-creds:
     enabled: true
     data:
-      MAILCOW_HOSTNAME: {{ .Values.mailcowConfig.hostname }}
-      DBNAME: {{ $dbName }}
-      DBUSER: {{ $dbUser }}
-      DBPASS: {{ $dbPass }}
-      DBROOT: {{ $dbRootPass }}
-      DBHOST: {{ $dbHost }}
-      REDIS_PASS: {{ $redisPass }}
-      REDIS_HOST: {{ $redisHost }}
-      SKIP_CLAMD: {{ ternary "y" "n" .Values.mailcowConfig.skipClamd }}
-      SKIP_SOGO: {{ ternary "y" "n" .Values.mailcowConfig.skipSogo }}
+      MAILCOW_HOSTNAME: {{ .Values.mailcowConfig.hostname | quote }}
+      DBNAME: {{ $dbName | quote }}
+      DBUSER: {{ $dbUser | quote }}
+      DBPASS: {{ $dbPass | quote }}
+      DBROOT: {{ $dbRootPass | quote }}
+      DBHOST: {{ $dbHost | quote }}
+      REDIS_PASS: {{ $redisPass | quote }}
+      REDIS_HOST: {{ $redisHost | quote }}
+      SKIP_CLAMD: {{ ternary "y" "n" .Values.mailcowConfig.skipClamd | quote }}
+      SKIP_SOGO: {{ ternary "y" "n" .Values.mailcowConfig.skipSogo | quote }}
 {{- end -}}

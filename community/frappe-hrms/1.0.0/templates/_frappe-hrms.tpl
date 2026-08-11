@@ -36,17 +36,17 @@ workload:
             liveness:
               enabled: true
               type: {{ $proto }}
-              port: {{ .Values.frappeHrmsNetwork.webPort }}
+              port: 8000
               path: /api/method/ping
             readiness:
               enabled: true
               type: {{ $proto }}
-              port: {{ .Values.frappeHrmsNetwork.webPort }}
+              port: 8000
               path: /api/method/ping
             startup:
               enabled: true
               type: {{ $proto }}
-              port: {{ .Values.frappeHrmsNetwork.webPort }}
+              port: 8000
               path: /api/method/ping
       initContainers:
       {{- include "ix.v1.common.app.permissions" (dict "containerName" "01-permissions"

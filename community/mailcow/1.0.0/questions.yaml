@@ -85,7 +85,7 @@ questions:
           label: HTTP Web Port
           schema:
             type: int
-            default: 30080
+            default: 31080
             min: 1
             max: 65535
             required: true
@@ -93,7 +93,7 @@ questions:
           label: HTTPS Web Port
           schema:
             type: int
-            default: 30443
+            default: 31443
             min: 1
             max: 65535
             required: true

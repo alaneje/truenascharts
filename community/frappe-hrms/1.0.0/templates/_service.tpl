@@ -11,5 +11,6 @@ service:
         primary: true
         port: {{ .Values.frappeHrmsNetwork.webPort }}
         nodePort: {{ .Values.frappeHrmsNetwork.webPort }}
+        targetPort: 8000
         targetSelector: actual
 {{- end -}}

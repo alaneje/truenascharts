@@ -49,8 +49,8 @@ mailcowConfig:
   additionalEnvs: []
 
 mailcowNetwork:
-  webPort: 30080
-  webHttpsPort: 30443
+  webPort: 31080
+  webHttpsPort: 31443
   smtpPort: 25
   smtpsPort: 465
   submissionPort: 587
