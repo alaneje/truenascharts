@@ -1,9 +1,0 @@
-runAsContext:
-  - userName: root
-    groupName: root
-    gid: 0
-    uid: 0
-    description: "Mailcow services require root privileges to bind to privileged mail ports and manage system user permissions."
-capabilities:
-  - name: NET_BIND_SERVICE
-    description: "Allows binding to privileged mail and web ports"
