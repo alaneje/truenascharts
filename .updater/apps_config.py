@@ -99,7 +99,7 @@ APPS = [
             "type": "dockerhub",
             "package_owner": "horilla",
             "package_name": "horilla",
-            "anchor_tag": "latest",
+            "anchor_tag": "1.4",
         },
     },
 ]
