@@ -1,0 +1,25 @@
+image:
+  repository: mariadb
+  pullPolicy: IfNotPresent
+  tag: "16"
+
+mariadbNetwork:
+  hostNetwork: false
+  serverPort: 3306
+
+mariadbConfig:
+  user: "mariadb"
+  password: "changeme"
+  database: "mariadb"
+  additionalEnvs: []
+
+mariadbStorage:
+  data:
+    type: pvc
+    datasetName: data
+  additionalStorages: []
+
+resources:
+  limits:
+    cpu: 2000m
+    memory: 4Gi

@@ -82,6 +82,25 @@ APPS = [
             "package_name": "frappe-hrms",
             "anchor_tag": "latest",
         },
+    {
+        "name": "mariadb",
+        "train": "community",
+        "check_ver": {
+            "type": "dockerhub",
+            "package_owner": "library",
+            "package_name": "mariadb",
+            "anchor_tag": "latest",
+        },
+    },
+    {
+        "name": "horilla",
+        "train": "community",
+        "check_ver": {
+            "type": "dockerhub",
+            "package_owner": "horilla",
+            "package_name": "horilla",
+            "anchor_tag": "latest",
+        },
     },
 ]
 

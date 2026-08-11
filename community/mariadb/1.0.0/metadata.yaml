@@ -1,0 +1,7 @@
+runAsContext:
+  - userName: mariadb
+    groupName: mariadb
+    uid: 999
+    gid: 999
+    description: MariaDB Service User
+hostMounts: []

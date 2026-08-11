@@ -1,0 +1,7 @@
+horillaRunAs:
+  user: 1000
+  group: 1000
+
+horillaStorage:
+  data:
+    type: pvc

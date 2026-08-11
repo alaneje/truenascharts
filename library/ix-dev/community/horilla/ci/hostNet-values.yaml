@@ -1,0 +1,6 @@
+horillaNetwork:
+  hostNetwork: true
+
+horillaStorage:
+  data:
+    type: pvc

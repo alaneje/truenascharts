@@ -1,0 +1,24 @@
+name: mariadb
+description: MariaDB Database Server
+annotations:
+  title: MariaDB
+type: application
+version: 1.0.0
+apiVersion: v2
+appVersion: "16"
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: truenas
+    url: https://www.truenas.com/
+    email: dev@ixsystems.com
+dependencies:
+  - name: common
+    repository: file://../../../common
+    version: 1.2.9
+home: https://hub.docker.com/_/mariadb
+icon: https://upload.wikimedia.org/wikipedia/commons/2/29/MariaDBql_elephant.svg
+sources:
+  - https://hub.docker.com/_/mariadb
+keywords:
+  - database
+  - mariadb
