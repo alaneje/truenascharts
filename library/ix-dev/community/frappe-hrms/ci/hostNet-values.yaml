@@ -1,0 +1,6 @@
+frappeHrmsNetwork:
+  hostNetwork: true
+
+frappeHrmsStorage:
+  data:
+    type: pvc

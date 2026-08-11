@@ -1,0 +1,7 @@
+frappeHrmsRunAs:
+  user: 1000
+  group: 1000
+
+frappeHrmsStorage:
+  data:
+    type: pvc

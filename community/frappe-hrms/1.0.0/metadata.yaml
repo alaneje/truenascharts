@@ -1,0 +1,8 @@
+runAsContext:
+  - userName: frappe
+    groupName: frappe
+    gid: 1000
+    uid: 1000
+    description: Frappe HRMS can run as any non-root user.
+capabilities: []
+hostMounts: []

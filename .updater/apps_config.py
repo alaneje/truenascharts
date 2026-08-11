@@ -83,6 +83,16 @@ APPS = [
             "anchor_tag": "latest",
         },
     },
+    {
+        "name": "frappe-hrms",
+        "train": "community",
+        "check_ver": {
+            "type": "dockerhub",
+            "package_owner": "miketkb910",
+            "package_name": "frappe-hrms",
+            "anchor_tag": "latest",
+        },
+    },
 ]
 
 # Repo root (TrueNASCharts/)
