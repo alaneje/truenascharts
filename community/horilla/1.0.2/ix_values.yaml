@@ -1,0 +1,28 @@
+image:
+  repository: horilla/horilla
+  pullPolicy: IfNotPresent
+  tag: "1.4"
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+
+horillaConfig:
+  additionalEnvs: []
+
+horillaNetwork:
+  webPort: 30081
+  certificateID:
+  hostNetwork: false
+
+horillaRunAs:
+  user: 568
+  group: 568
+
+horillaStorage:
+  data:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: data
+  additionalStorages: []

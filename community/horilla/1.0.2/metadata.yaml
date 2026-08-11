@@ -1,0 +1,8 @@
+runAsContext:
+  - userName: horilla
+    groupName: horilla
+    gid: 568
+    uid: 568
+    description: Horilla can run as any non-root user.
+capabilities: []
+hostMounts: []
