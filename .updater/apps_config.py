@@ -102,6 +102,17 @@ APPS = [
             "anchor_tag": "1.4",
         },
     },
+    {
+        "name": "immich",
+        "train": "community",
+        "check_ver": {
+            "type": "ghcr",
+            "package_owner": "immich-app",
+            "package_name": "immich-server",
+            "anchor_tag": "latest",
+            "version_matcher": [r"^v\d+\.\d+\.\d+$"],
+        },
+    },
 ]
 
 # Repo root (TrueNASCharts/)

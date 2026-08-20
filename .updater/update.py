@@ -276,7 +276,16 @@ def create_version_dir(app_name: str, app_train: str, old_version: ChartVersion,
         ix_values = yaml.safe_load(f)
 
     # TrueNASCharts commonly stores plain tags (no @digest). Keep it consistent.
-    ix_values["image"]["tag"] = new_version.tag
+    if "image" in ix_values and "tag" in ix_values["image"]:
+        ix_values["image"]["tag"] = new_version.tag
+        
+    if app_name == "immich":
+        if "mlImage" in ix_values:
+            ix_values["mlImage"]["tag"] = new_version.tag
+        if "mlCudaImage" in ix_values:
+            ix_values["mlCudaImage"]["tag"] = f"{new_version.tag}-cuda"
+        if "mlOpenvinoImage" in ix_values:
+            ix_values["mlOpenvinoImage"]["tag"] = f"{new_version.tag}-openvino"
 
     with open(CHARTS_DIR / new_dir / "Chart.yaml", "r", encoding="utf-8") as f:
         chart = yaml.safe_load(f)
