@@ -6,9 +6,9 @@
         "location": "/catalog/community/teamcity/1.0.1",
         "last_update": "2026-07-28 21:29:01",
         "required_features": [
-            "normalize/acl",
             "normalize/ixVolume",
             "definitions/timezone",
+            "normalize/acl",
             "definitions/certificate"
         ],
         "human_version": "latest_1.0.1",
@@ -1355,9 +1355,9 @@
         "location": "/catalog/community/teamcity/1.0.0",
         "last_update": "2026-07-28 21:29:01",
         "required_features": [
-            "normalize/acl",
             "normalize/ixVolume",
             "definitions/timezone",
+            "normalize/acl",
             "definitions/certificate"
         ],
         "human_version": "latest_1.0.0",
