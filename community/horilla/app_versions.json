@@ -6,9 +6,9 @@
         "location": "/catalog/community/horilla/1.0.2",
         "last_update": "2026-08-11 12:01:26",
         "required_features": [
-            "definitions/certificate",
+            "normalize/acl",
             "normalize/ixVolume",
-            "normalize/acl"
+            "definitions/certificate"
         ],
         "human_version": "latest_1.0.2",
         "version": "1.0.2",
@@ -1042,9 +1042,9 @@
         "location": "/catalog/community/horilla/1.0.1",
         "last_update": "2026-08-11 11:55:11",
         "required_features": [
-            "definitions/certificate",
+            "normalize/acl",
             "normalize/ixVolume",
-            "normalize/acl"
+            "definitions/certificate"
         ],
         "human_version": "latest_1.0.1",
         "version": "1.0.1",
@@ -2078,9 +2078,9 @@
         "location": "/catalog/community/horilla/1.0.0",
         "last_update": "2026-08-11 11:48:28",
         "required_features": [
-            "definitions/certificate",
+            "normalize/acl",
             "normalize/ixVolume",
-            "normalize/acl"
+            "definitions/certificate"
         ],
         "human_version": "latest_1.0.0",
         "version": "1.0.0",

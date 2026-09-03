@@ -1,0 +1,241 @@
+{
+    "1.0.0": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/catalog/community/unity-accelerator/1.0.0",
+        "last_update": "2026-09-03 15:10:38",
+        "required_features": [
+            "normalize/ixVolume"
+        ],
+        "human_version": "latest_1.0.0",
+        "version": "1.0.0",
+        "chart_metadata": {
+            "name": "unity-accelerator",
+            "description": "Unity Accelerator is a local network proxy and cache for Unity projects.",
+            "annotations": {
+                "title": "Unity Accelerator"
+            },
+            "type": "application",
+            "version": "1.0.0",
+            "apiVersion": "v2",
+            "appVersion": "latest",
+            "kubeVersion": ">=1.16.0-0",
+            "maintainers": [
+                {
+                    "name": "truenas",
+                    "url": "https://www.truenas.com/",
+                    "email": "dev@ixsystems.com"
+                }
+            ],
+            "dependencies": [
+                {
+                    "name": "common",
+                    "repository": "file://../../../common",
+                    "version": "1.2.9"
+                }
+            ],
+            "home": "https://unity.com/",
+            "icon": "https://media.sys.truenas.net/apps/unity-accelerator/icons/icon.png",
+            "sources": [
+                "https://hub.docker.com/r/unitytechnologies/accelerator"
+            ],
+            "keywords": [
+                "media",
+                "proxy",
+                "cache"
+            ]
+        },
+        "app_metadata": {
+            "runAsContext": [
+                {
+                    "userName": "apps",
+                    "groupName": "apps",
+                    "uid": 568,
+                    "gid": 568,
+                    "description": "Unity Accelerator runs as apps"
+                }
+            ],
+            "capabilities": [
+                {
+                    "name": "execute-command",
+                    "description": "Allow user to execute commands on the container"
+                }
+            ]
+        },
+        "schema": {
+            "groups": [
+                {
+                    "name": "Network Configuration",
+                    "description": "Configure Network for Unity Accelerator"
+                },
+                {
+                    "name": "Storage Configuration",
+                    "description": "Configure Storage for Unity Accelerator"
+                },
+                {
+                    "name": "Resources Configuration",
+                    "description": "Configure Resources for Unity Accelerator"
+                }
+            ],
+            "questions": [
+                {
+                    "variable": "unityAcceleratorNetwork",
+                    "label": "",
+                    "group": "Network Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "hostNetwork",
+                                "label": "Host Network",
+                                "description": "Bind to the host network. It's recommended to keep this disabled.</br>\n",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": false
+                                }
+                            },
+                            {
+                                "variable": "webPort",
+                                "label": "Web Port",
+                                "description": "The web port for Unity Accelerator.",
+                                "schema": {
+                                    "type": "int",
+                                    "default": 10080,
+                                    "min": 9000,
+                                    "max": 65535,
+                                    "required": true
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "unityAcceleratorStorage",
+                    "label": "",
+                    "group": "Storage Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "data",
+                                "label": "Unity Accelerator Data Storage",
+                                "description": "The path to store Unity Accelerator Data.",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "ixVolume: Is dataset created automatically by the system.</br>\nHost Path: Is a path that already exists on the system.\n",
+                                            "schema": {
+                                                "type": "string",
+                                                "required": true,
+                                                "immutable": true,
+                                                "default": "ixVolume",
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path (Path that already exists on the system)"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "ixVolume (Dataset created automatically by the system)"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "datasetName",
+                                            "label": "Dataset Name",
+                                            "schema": {
+                                                "type": "string",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "required": true,
+                                                "hidden": true,
+                                                "immutable": true,
+                                                "default": "data",
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPath",
+                                            "label": "Host Path",
+                                            "schema": {
+                                                "type": "hostpath",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "required": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "resources",
+                    "group": "Resources Configuration",
+                    "label": "",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "limits",
+                                "label": "Limits",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "cpu",
+                                            "label": "CPU",
+                                            "description": "CPU limit for Unity Accelerator.",
+                                            "schema": {
+                                                "type": "string",
+                                                "max_length": 6,
+                                                "valid_chars": "^(0\\.[1-9]|[1-9][0-9]*)(\\.[0-9]|m?)$",
+                                                "valid_chars_error": "Valid CPU limit formats are</br>\n- Plain Integer - eg. 1</br>\n- Float - eg. 0.5</br>\n- Milicpu - eg. 500m\n",
+                                                "default": "4000m",
+                                                "required": true
+                                            }
+                                        },
+                                        {
+                                            "variable": "memory",
+                                            "label": "Memory",
+                                            "description": "Memory limit for Unity Accelerator.",
+                                            "schema": {
+                                                "type": "string",
+                                                "max_length": 12,
+                                                "valid_chars": "^[1-9][0-9]*([EPTGMK]i?|e[0-9]+)?$",
+                                                "valid_chars_error": "Valid Memory limit formats are</br>\n- Suffixed with E/P/T/G/M/K - eg. 1G</br>\n- Suffixed with Ei/Pi/Ti/Gi/Mi/Ki - eg. 1Gi</br>\n- Plain Integer in bytes - eg. 1024</br>\n- Exponent - eg. 134e6\n",
+                                                "default": "8Gi",
+                                                "required": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "app_readme": "<p>Unity Accelerator is a local network proxy and cache for Unity projects.</p>",
+        "detailed_readme": "<p>Unity Accelerator is a local network proxy and cache for Unity projects.</p>",
+        "changelog": null
+    }
+}

@@ -6,8 +6,8 @@
         "location": "/catalog/charts/home-assistant/2.0.67",
         "last_update": "2026-07-01 08:51:14",
         "required_features": [
-            "normalize/ixVolume",
             "normalize/acl",
+            "normalize/ixVolume",
             "definitions/timezone"
         ],
         "human_version": "2026.6.4_2.0.67",
