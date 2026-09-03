@@ -1,0 +1,58 @@
+image:
+  repository: ghcr.io/drop-oss/drop
+  pullPolicy: IfNotPresent
+  tag: 0.4.0-rc-5
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+
+dropossConfig:
+  externalUrl: http://localhost:3000
+  additionalEnvs: []
+
+dropossNetwork:
+  webPort: 30000
+  hostNetwork: false
+
+dropossRunAs:
+  user: 568
+  group: 568
+
+dropossStorage:
+  data:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: data
+  library:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: library
+  additionalStorages: []
+  pgData:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: pgData
+  pgBackup:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: pgBackup
+
+notes:
+  custom: |
+    ## Database
+    You can connect to the database using the pgAdmin App from the catalog
+
+    <details>
+      <summary>Database Details</summary>
+
+      - Database: `droposs`
+      - Username: `droposs`
+      - Password: `{{ .Values.dropossDbPass }}`
+      - Host:     `{{ .Values.dropossDbHost }}.{{ .Release.Namespace }}.svc.cluster.local`
+      - Port:     `5432`
+
+    </details>
+    {{- $_ := unset .Values "dropossDbPass" }}
+    {{- $_ := unset .Values "dropossDbHost" }}

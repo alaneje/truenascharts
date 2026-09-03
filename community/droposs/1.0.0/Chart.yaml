@@ -1,0 +1,26 @@
+name: droposs
+description: Drop is an open-source library manager and launcher for games.
+annotations:
+  title: Drop
+type: application
+version: 1.0.0
+apiVersion: v2
+appVersion: 0.4.0-rc-5
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: truenas
+    url: https://www.truenas.com/
+    email: dev@ixsystems.com
+dependencies:
+  - name: common
+    repository: file://../../../common
+    version: 1.2.9
+home: https://droposs.org/
+icon: https://droposs.org/favicon.ico
+sources:
+  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/droposs
+  - https://github.com/Drop-OSS/Drop
+keywords:
+  - game
+  - launcher
+  - library

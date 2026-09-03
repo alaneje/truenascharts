@@ -1,0 +1,21 @@
+dropossNetwork:
+  webPort: 31000
+
+dropossRunAs:
+  user: 1000
+  group: 1000
+
+dropossConfig:
+  username: admin
+  password: admin
+
+dropossStorage:
+  data:
+    type: pvc
+  pgData:
+    type: pvc
+  pgBackup:
+    type: emptyDir
+    emptyDirConfig:
+      medium: ""
+      size: ""

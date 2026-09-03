@@ -1,0 +1,3 @@
+{{- define "droposs.validation" -}}
+
+{{- end -}}
