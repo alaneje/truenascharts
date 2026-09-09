@@ -113,6 +113,26 @@ APPS = [
             "version_matcher": [r"^v\d+\.\d+\.\d+$"],
         },
     },
+    {
+        "name": "github-runner",
+        "train": "community",
+        "check_ver": {
+            "type": "dockerhub",
+            "package_owner": "myoung34",
+            "package_name": "github-runner",
+            "anchor_tag": "latest",
+        },
+    },
+    {
+        "name": "unity-accelerator",
+        "train": "community",
+        "check_ver": {
+            "type": "dockerhub",
+            "package_owner": "unitytechnologies",
+            "package_name": "accelerator",
+            "anchor_tag": "latest",
+        },
+    },
 ]
 
 # Repo root (TrueNASCharts/)
