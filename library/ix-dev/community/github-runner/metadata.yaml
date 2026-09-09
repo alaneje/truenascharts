@@ -1,0 +1,8 @@
+runAsContext:
+  - userName: runner
+    groupName: runner
+    gid: 1000
+    uid: 1000
+    description: GitHub Runner runs as a non-root user.
+capabilities: []
+hostMounts: []
