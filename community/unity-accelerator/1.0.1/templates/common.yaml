@@ -1,0 +1,8 @@
+{{- include "ix.v1.common.loader.init" . -}}
+
+{{/* Merge the templates with Values */}}
+{{- include "unity-accelerator.validation" $ -}}
+{{- $_ := mustMergeOverwrite .Values (include "unity-accelerator.configuration" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "unity-accelerator.workload" $ | fromYaml) -}}
+
+{{- include "ix.v1.common.loader.apply" . -}}

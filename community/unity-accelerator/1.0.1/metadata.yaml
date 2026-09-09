@@ -1,0 +1,9 @@
+runAsContext:
+  - userName: apps
+    groupName: apps
+    uid: 568
+    gid: 568
+    description: Unity Accelerator runs as apps
+capabilities:
+  - name: execute-command
+    description: Allow user to execute commands on the container

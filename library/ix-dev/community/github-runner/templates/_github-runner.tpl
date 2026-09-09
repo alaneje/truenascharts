@@ -20,9 +20,11 @@ workload:
           securityContext:
             runAsUser: {{ .Values.githubRunnerRunAs.user }}
             runAsGroup: {{ .Values.githubRunnerRunAs.group }}
+            readOnlyRootFilesystem: false
           env:
             REPO_URL: {{ .Values.githubRunnerConfig.url }}
             RUNNER_TOKEN: {{ .Values.githubRunnerConfig.token }}
+            RUN_AS_ROOT: "false"
             {{- if .Values.githubRunnerConfig.name }}
             RUNNER_NAME: {{ .Values.githubRunnerConfig.name }}
             {{- end }}
