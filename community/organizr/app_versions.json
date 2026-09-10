@@ -7,8 +7,8 @@
         "last_update": "2024-01-22 14:14:24",
         "required_features": [
             "normalize/acl",
-            "definitions/timezone",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone"
         ],
         "human_version": "latest_1.0.1",
         "version": "1.0.1",

@@ -1173,8 +1173,8 @@
         "location": "/catalog/charts/syncthing/1.0.42",
         "last_update": "2024-02-19 11:57:46",
         "required_features": [
-            "validations/lockedHostPath",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "validations/lockedHostPath"
         ],
         "human_version": "1.27.3_1.0.42",
         "version": "1.0.42",
