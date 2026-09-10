@@ -14,16 +14,6 @@ persistence:
           mountPath: /mnt/directories{{ $storage.mountPath }}
         {{- end }}
   {{- end }}
-  {{- if .Values.githubRunnerStorage.mountDockerSocket }}
-  dockersock:
-    enabled: true
-    type: hostPath
-    hostPath: /var/run/docker.sock
-    targetSelector:
-      github-runner:
-        github-runner:
-          mountPath: /var/run/docker.sock
-  {{- end }}
 {{- end -}}
 
 {{/* TODO: Remove on the next version bump, eg 1.2.0+ */}}

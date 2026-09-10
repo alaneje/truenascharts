@@ -23,5 +23,5 @@ githubRunnerNetwork:
   hostNetwork: false
 
 githubRunnerStorage:
-  mountDockerSocket: false
+  enableDockerInDocker: false
   additionalStorages: []

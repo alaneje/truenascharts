@@ -24,6 +24,10 @@ workload:
             runAsGroup: 0
             readOnlyRootFilesystem: false
             runAsNonRoot: false
+            {{- if .Values.githubRunnerStorage.enableDockerInDocker }}
+            privileged: true
+            allowPrivilegeEscalation: true
+            {{- end }}
             capabilities:
               add:
                 - SETUID
@@ -32,6 +36,9 @@ workload:
                 - FOWNER
                 - DAC_OVERRIDE
           env:
+            {{- if .Values.githubRunnerStorage.enableDockerInDocker }}
+            START_DOCKER_SERVICE: "true"
+            {{- end }}
             REPO_URL: {{ .Values.githubRunnerConfig.url }}
             {{- if or (hasPrefix "ghp_" .Values.githubRunnerConfig.token) (hasPrefix "github_pat_" .Values.githubRunnerConfig.token) }}
             ACCESS_TOKEN: {{ .Values.githubRunnerConfig.token }}

@@ -110,9 +110,9 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: mountDockerSocket
-          label: Mount Docker Socket
-          description: Mount /var/run/docker.sock to allow Docker-in-Docker (required for some CI/CD jobs).
+        - variable: enableDockerInDocker
+          label: Enable Docker-in-Docker
+          description: Runs an isolated Docker daemon inside the runner (required for GameCI and container builds). Note: Enables privileged mode.
           schema:
             type: boolean
             default: false
