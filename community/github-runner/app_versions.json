@@ -1,16 +1,16 @@
 {
-    "1.0.8": {
+    "1.0.10": {
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/catalog/community/github-runner/1.0.8",
-        "last_update": "2026-09-10 11:29:32",
+        "location": "/catalog/community/github-runner/1.0.10",
+        "last_update": "2026-09-10 12:05:44",
         "required_features": [
             "normalize/acl",
             "normalize/ixVolume"
         ],
-        "human_version": "2.319.1_1.0.8",
-        "version": "1.0.8",
+        "human_version": "2.319.1_1.0.10",
+        "version": "1.0.10",
         "chart_metadata": {
             "name": "github-runner",
             "description": "GitHub Actions Runner",
@@ -18,7 +18,7 @@
                 "title": "GitHub Runner"
             },
             "type": "application",
-            "version": "1.0.8",
+            "version": "1.0.10",
             "apiVersion": "v2",
             "appVersion": "2.319.1",
             "kubeVersion": ">=1.16.0-0",
@@ -79,12 +79,7 @@
                     "description": "GitHub Runner requires this ability to bypass file permission checks."
                 }
             ],
-            "hostMounts": [
-                {
-                    "hostPath": "/var/run/docker.sock",
-                    "description": "Mount the Docker socket to allow the runner to spawn sibling containers."
-                }
-            ]
+            "hostMounts": []
         },
         "schema": {
             "groups": [
@@ -254,9 +249,9 @@
                         "type": "dict",
                         "attrs": [
                             {
-                                "variable": "mountDockerSocket",
-                                "label": "Mount Docker Socket",
-                                "description": "Mount /var/run/docker.sock to allow Docker-in-Docker (required for some CI/CD jobs).",
+                                "variable": "enableDockerInDocker",
+                                "label": "Enable Docker-in-Docker",
+                                "description": "Runs an isolated Docker daemon inside the runner (required for GameCI and container builds). Note: Enables privileged mode.",
                                 "schema": {
                                     "type": "boolean",
                                     "default": false
