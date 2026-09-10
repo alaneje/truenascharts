@@ -112,7 +112,7 @@ questions:
       attrs:
         - variable: enableDockerInDocker
           label: Enable Docker-in-Docker
-          description: Runs an isolated Docker daemon inside the runner (required for GameCI and container builds). Note: Enables privileged mode.
+          description: "Runs an isolated Docker daemon inside the runner (required for GameCI and container builds). Note: Enables privileged mode."
           schema:
             type: boolean
             default: false
