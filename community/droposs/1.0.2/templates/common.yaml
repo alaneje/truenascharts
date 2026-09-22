@@ -1,0 +1,15 @@
+{{- include "ix.v1.common.loader.init" . -}}
+
+{{- include "droposs.validation" $ -}}
+
+{{/* Merge the templates with Values */}}
+{{- $_ := mustMergeOverwrite .Values (include "droposs.workload" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "droposs.service" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "droposs.persistence" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "droposs.configuration" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "postgres.workload" $ | fromYaml) -}}
+
+{{/* Create the configmap for portal manually*/}}
+{{- include "droposs.portal" $ -}}
+
+{{- include "ix.v1.common.loader.apply" . -}}
