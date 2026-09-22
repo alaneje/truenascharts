@@ -6,8 +6,8 @@
         "location": "/catalog/community/github-runner/1.0.10",
         "last_update": "2026-09-10 12:05:44",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "2.319.1_1.0.10",
         "version": "1.0.10",
@@ -743,8 +743,8 @@
         "location": "/catalog/community/github-runner/1.0.6",
         "last_update": "2026-09-09 18:07:19",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "2.319.1_1.0.6",
         "version": "1.0.6",
@@ -1471,8 +1471,8 @@
         "location": "/catalog/community/github-runner/1.0.5",
         "last_update": "2026-09-09 13:49:12",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "2.319.1_1.0.5",
         "version": "1.0.5",
@@ -2199,8 +2199,8 @@
         "location": "/catalog/community/github-runner/1.0.4",
         "last_update": "2026-09-09 13:41:19",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "2.319.1_1.0.4",
         "version": "1.0.4",
@@ -2927,8 +2927,8 @@
         "location": "/catalog/community/github-runner/1.0.3",
         "last_update": "2026-09-09 13:31:36",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "2.319.1_1.0.3",
         "version": "1.0.3",
@@ -3655,8 +3655,8 @@
         "location": "/catalog/community/github-runner/1.0.2",
         "last_update": "2026-09-09 13:20:28",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "2.319.1_1.0.2",
         "version": "1.0.2",
@@ -4383,8 +4383,8 @@
         "location": "/catalog/community/github-runner/1.0.1",
         "last_update": "2026-09-09 13:14:58",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "2.319.1_1.0.1",
         "version": "1.0.1",
@@ -5090,8 +5090,8 @@
         "location": "/catalog/community/github-runner/1.0.0",
         "last_update": "2026-09-09 13:14:58",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "2.319.1_1.0.0",
         "version": "1.0.0",
