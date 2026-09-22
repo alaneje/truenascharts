@@ -31,17 +31,17 @@ workload:
             liveness:
               enabled: true
               type: http
-              port: {{ .Values.dropossNetwork.webPort }}
+              port: 4000
               path: /
             readiness:
               enabled: true
               type: http
-              port: {{ .Values.dropossNetwork.webPort }}
+              port: 4000
               path: /
             startup:
               enabled: true
               type: http
-              port: {{ .Values.dropossNetwork.webPort }}
+              port: 4000
               path: /
       initContainers:
       {{- include "ix.v1.common.app.permissions" (dict "containerName" "01-permissions"

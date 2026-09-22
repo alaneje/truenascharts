@@ -11,7 +11,7 @@ service:
         primary: true
         port: {{ .Values.dropossNetwork.webPort }}
         nodePort: {{ .Values.dropossNetwork.webPort }}
-        targetPort: 3000
+        targetPort: 4000
         targetSelector: droposs
   {{- include "ix.v1.common.app.postgresService" $ | nindent 2 }}
 {{- end -}}
