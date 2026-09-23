@@ -1,0 +1,32 @@
+Title: Live Content
+
+Description: Fetched live
+
+Source: https://developer.droposs.org/web/depot
+
+---
+Depot API - Drop API Reference
+((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","theme","system",null,["light","dark"],null,true,true)
+Developer API
+Find something...
+K
+Developer API
+Documentation
+GitHub
+Discord
+API
+Documentation
+Support
+Guides
+Introduction
+Quickstart
+Web API
+Client API
+Plugins
+Contributing
+Web API
+Users
+Objects
+Tasks
+Import
+Library
