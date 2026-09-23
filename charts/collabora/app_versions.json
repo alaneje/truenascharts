@@ -6,10 +6,10 @@
         "location": "/catalog/charts/collabora/2.0.37",
         "last_update": "2025-02-21 12:29:18",
         "required_features": [
-            "definitions/timezone",
-            "definitions/nodeIP",
             "definitions/certificate",
             "normalize/acl",
+            "definitions/timezone",
+            "definitions/nodeIP",
             "normalize/ixVolume"
         ],
         "human_version": "24.04.12.4.1_2.0.37",

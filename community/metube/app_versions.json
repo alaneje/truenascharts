@@ -6,8 +6,8 @@
         "location": "/catalog/community/metube/1.2.53",
         "last_update": "2025-03-06 08:27:48",
         "required_features": [
-            "normalize/ixVolume",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "2025-03-05_1.2.53",
         "version": "1.2.53",
