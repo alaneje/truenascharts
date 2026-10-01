@@ -82,6 +82,7 @@ APPS = [
             "package_name": "frappe-hrms",
             "anchor_tag": "latest",
         },
+    },
     {
         "name": "mariadb",
         "train": "community",
