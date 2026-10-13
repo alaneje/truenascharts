@@ -110,7 +110,7 @@ APPS = [
             "type": "ghcr",
             "package_owner": "immich-app",
             "package_name": "immich-server",
-            "anchor_tag": "latest",
+            "anchor_tag": "release",
             "version_matcher": [r"^v\d+\.\d+\.\d+$"],
         },
     },
