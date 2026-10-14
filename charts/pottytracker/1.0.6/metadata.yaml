@@ -1,0 +1,6 @@
+runAsContext:
+  - userName: nextjs
+    groupName: nodejs
+    uid: 1001
+    gid: 1001
+    description: "Run as nextjs user"
