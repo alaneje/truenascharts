@@ -1,0 +1,25 @@
+shoutrrrConfig:
+  appName: MyShoutrrr
+  appUrl: https://shoutrrr.example.com
+  appKey: base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+  sessionSecureCookie: true
+  trustedProxies: "*"
+  additionalEnvs:
+    - name: LOG_LEVEL
+      value: debug
+    - name: APP_TIMEZONE
+      value: UTC
+
+shoutrrrNetwork:
+  webPort: 32000
+
+shoutrrrStorage:
+  storage:
+    type: pvc
+  database:
+    type: pvc
+  additionalStorages:
+    - type: pvc
+      mountPath: /data1
+    - type: pvc
+      mountPath: /data2
