@@ -1,0 +1,11 @@
+{{/* Apply helm migrations */}}
+{{- include "ix.v1.common.loader.init" . -}}
+
+{{- include "mariadb.migration.checks" . -}}
+
+{{/* Merge the templates with Values */}}
+{{- $_ := mustMergeOverwrite .Values (include "mariadb.workload" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "mariadb.service" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "mariadb.persistence" $ | fromYaml) -}}
+
+{{- include "ix.v1.common.loader.apply" . -}}
